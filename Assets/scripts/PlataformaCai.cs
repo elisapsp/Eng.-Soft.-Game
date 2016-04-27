@@ -30,9 +30,11 @@ public class PlataformaCai : MonoBehaviour {
             //Se o tempo for maior ou igual que a duracao planejada para a plataforma cair.
             if (tempo >= duracaoCair)
             {
+                //Se o objeto não tiver Rigidbody.
+                if(gameObject.GetComponent<Rigidbody2D>() == null) { 
                 //Adiciona massa ao objeto.
                 gameObject.AddComponent<Rigidbody2D>();
-
+                }
                 //Destroi o objeto após 2 segundos.
                 Destroy(gameObject, 2f);
             }

@@ -20,6 +20,7 @@ public class pocao : MonoBehaviour {
     {
         if (colisor.gameObject.tag == "Player")
         {
+            //pega o componente vidaObjeto dentro do player.
             var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
             player.RecuperaVida(vida);
             Destroy(gameObject);
