@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: 20f18358b3680354680eb028ac280eb1
+timeCreated: 1461709322
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprite_flag_0
+    21300002: sprite_flag_1
+    21300004: sprite_flag_2
+    21300006: sprite_flag_3
+    21300008: sprite_flag_4
+    21300010: sprite_flag_5
+    21300012: sprite_flag_6
+    21300014: sprite_flag_7
+    21300016: sprite_flag_8
+    21300018: sprite_flag_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sprite_flag_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 901
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 47.5}
+        - {x: -27, y: 46.5}
+        - {x: -47, y: -4.5}
+        - {x: -47, y: -31.5}
+        - {x: -46, y: -35.5}
+        - {x: -34, y: -47.5}
+        - {x: -11, y: -47.5}
+        - {x: 47, y: 0.5}
+        - {x: 47, y: 44.5}
+        - {x: 45, y: 47.5}
+    - name: sprite_flag_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 801
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 47.5}
+        - {x: -47.5, y: -3.5}
+        - {x: -47.5, y: -31.5}
+        - {x: -43.5, y: -47.5}
+        - {x: 0.5, y: -47.5}
+        - {x: 47.5, y: -19.5}
+        - {x: 47.5, y: 45.5}
+        - {x: 17.5, y: 47.5}
+    - name: sprite_flag_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 701
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42.5, y: 47.5}
+        - {x: -47.5, y: 15.5}
+        - {x: -47.5, y: -44.5}
+        - {x: -39.5, y: -47.5}
+        - {x: 16.5, y: -47.5}
+        - {x: 47.5, y: 2.5}
+        - {x: 47.5, y: 47.5}
+    - name: sprite_flag_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.5, y: 47.5}
+        - {x: -47.5, y: -3.5}
+        - {x: -47.5, y: -31.5}
+        - {x: -46.5, y: -35.5}
+        - {x: -34.5, y: -47.5}
+        - {x: -11.5, y: -47.5}
+        - {x: 46.5, y: 0.5}
+        - {x: 47.5, y: 5.5}
+        - {x: 47.5, y: 47.5}
+    - name: sprite_flag_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 501
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 47.5}
+        - {x: -47, y: -3.5}
+        - {x: -47, y: -44.5}
+        - {x: -39, y: -47.5}
+        - {x: 5, y: -47.5}
+        - {x: 47, y: 1.5}
+        - {x: 47, y: 43.5}
+        - {x: 45, y: 47.5}
+    - name: sprite_flag_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 401
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38, y: 47.5}
+        - {x: -28, y: 47.5}
+        - {x: -47, y: -3.5}
+        - {x: -47, y: -31.5}
+        - {x: -46, y: -35.5}
+        - {x: -34, y: -47.5}
+        - {x: -11, y: -47.5}
+        - {x: 45, y: -0.5}
+        - {x: 47, y: 7.5}
+        - {x: 47, y: 36.5}
+    - name: sprite_flag_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 301
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47, y: -47.5}
+        - {x: 21, y: -47.5}
+        - {x: 47, y: -32.5}
+        - {x: 47, y: 31.5}
+        - {x: 40, y: 47.5}
+        - {x: -39, y: 47.5}
+        - {x: -47, y: 13.5}
+    - name: sprite_flag_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 201
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47, y: -47.5}
+        - {x: 19, y: -47.5}
+        - {x: 47, y: -31.5}
+        - {x: 47, y: 34.5}
+        - {x: 41, y: 47.5}
+        - {x: -39, y: 47.5}
+        - {x: -47, y: 6.5}
+    - name: sprite_flag_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 101
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 47.5}
+        - {x: -47, y: -3.5}
+        - {x: -47, y: -31.5}
+        - {x: -46, y: -35.5}
+        - {x: -34, y: -47.5}
+        - {x: 31, y: -47.5}
+        - {x: 47, y: -8.5}
+        - {x: 47, y: 47.5}
+    - name: sprite_flag_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 92
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 47.5}
+        - {x: -46, y: 1.5}
+        - {x: -46, y: -33.5}
+        - {x: -45, y: -35.5}
+        - {x: -33, y: -47.5}
+        - {x: -10, y: -47.5}
+        - {x: 46, y: -3.5}
+        - {x: 46, y: 44.5}
+        - {x: 28, y: 47.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
