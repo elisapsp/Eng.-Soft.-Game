@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class pocao : MonoBehaviour {
-
+    
     public int vida;
 
 	// Use this for initialization
@@ -25,5 +25,5 @@ public class pocao : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
+    
 }
