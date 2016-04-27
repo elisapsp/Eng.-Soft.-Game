@@ -20,7 +20,7 @@ public class pocao : MonoBehaviour {
     {
         if (colisor.gameObject.tag == "Player")
         {
-            var player = colisor.gameObject.GetComponent<vidaObjeto>();
+            var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
             player.RecuperaVida(vida);
             Destroy(gameObject);
         }

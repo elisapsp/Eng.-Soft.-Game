@@ -2,23 +2,7 @@
 using System.Collections;
 
 public class DaDano : MonoBehaviour {
-    /*
-        
-
-        void OnTriggerEnter2D(Collider2D colisor)
-        {
-            if (colisor.gameObject.tag == "Player")
-            {
-                var player = colisor.gameObject.GetComponent<vidaObjeto>();
-                player.PerdeVida(dano);
-
-                if (destroiAtacante)
-                { 
-                    Destroy(gameObject);
-                }
-            }
-        }
-      */
+   
     public int dano;
     public bool destroiAtacante;
 
@@ -39,7 +23,7 @@ public class DaDano : MonoBehaviour {
     {
         if (colisor.gameObject.tag == "Player")
         {
-            var player = colisor.gameObject.GetComponent<vidaObjeto>();
+            var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
             player.PerdeVida(dano);
         }
         if (destroiAtacante)
