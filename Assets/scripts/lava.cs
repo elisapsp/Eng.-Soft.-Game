@@ -29,6 +29,7 @@ public class lava : MonoBehaviour {
             
             //Coloca o player na posição 0,0,0.
             player.position = new Vector3(0, 0, 0);
+            //TODO: Substituir isso para colocar o player na ultima posicao do checkpoint.
 
             //Reseta o jogo.
             //Com o Application.LoadLevel() é que se muda as fases do Jogo (são as Scenes).

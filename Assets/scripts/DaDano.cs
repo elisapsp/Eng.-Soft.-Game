@@ -31,4 +31,20 @@ public class DaDano : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D colisor)
+    {
+        if (colisor.gameObject.tag == "Player")
+        {
+            var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
+            player.PerdeVida(dano);
+        }
+        if (destroiAtacante)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
 }

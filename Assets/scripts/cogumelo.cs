@@ -4,11 +4,11 @@ using System.Collections;
 public class cogumelo : MonoBehaviour {
 
     private float forcaPulo = 500f;
- 
+    
     // Use this for initialization
     void Start () {
 
- 
+    
 
 	}
 	
@@ -26,9 +26,10 @@ public class cogumelo : MonoBehaviour {
     //Essa força aplicada será para cima (transform.up)
     void OnCollisionEnter2D(Collision2D colisor)
     {
+        if (colisor.gameObject.tag == "Player") { 
         
         colisor.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * forcaPulo);
-        
+        }
     }
 
 }

@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\BugCollision.cs" />
     <Compile Include="Assets\scripts\DaDano.cs" />
     <Compile Include="Assets\scripts\GUITextureAboveObject.cs" />
     <Compile Include="Assets\scripts\PlataformaCai.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\scripts\bolaFogo.cs" />
     <Compile Include="Assets\scripts\camera.cs" />
     <Compile Include="Assets\scripts\cogumelo.cs" />
+    <Compile Include="Assets\scripts\colideChaoVerificador.cs" />
     <Compile Include="Assets\scripts\lava.cs" />
     <Compile Include="Assets\scripts\mantemPlayerEmCima.cs" />
     <Compile Include="Assets\scripts\movimentacaoObjeto.cs" />

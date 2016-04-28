@@ -42,13 +42,35 @@ public class PlataformaCai : MonoBehaviour {
 
     }
 
-    //Quando o player colidir com a plataforma, seta pisou como true.
+
+    /*
     void OnCollisionEnter2D(Collision2D colisor)
     {
+
+        //Debug.Log();
+        Debug.Log(colisor.gameObject.name + " " + "OnCollision");
         if (colisor.gameObject.name == "Player")
         {
-            pisou = true;
+
+            //pisou = true;
+
         }
+
+    }
+    */
+
+    //Quando o player(o chao verificador do player) colidir com a plataforma, seta pisou como true.
+    void OnTriggerEnter2D(Collider2D colisor)
+    {
+        
+        if (colisor.gameObject.name == "chaoVerificador" && colisor.gameObject.transform.parent.gameObject.name == "Player")
+        {
+
+            pisou = true;
+
+        }
+        
+
     }
 
 

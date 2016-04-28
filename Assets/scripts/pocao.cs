@@ -18,13 +18,24 @@ public class pocao : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D colisor)
     {
-        if (colisor.gameObject.tag == "Player")
+        if (colisor.gameObject.tag == "Player" || colisor.gameObject.name == "chaoVerificador")
         {
             //pega o componente vidaObjeto dentro do player.
             var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
-            player.RecuperaVida(vida);
+            //player.RecuperaVida(vida);
             Destroy(gameObject);
         }
     }
-    
+
+    void OnTriggerEnter2D(Collider2D colisor)
+    {
+        if (colisor.gameObject.name == "chaoVerificador")
+        {
+            //pega o componente vidaObjeto dentro do player.
+            var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
+            //player.RecuperaVida(vida);
+            Destroy(gameObject);
+        }
+    }
+
 }

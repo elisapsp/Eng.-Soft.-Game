@@ -10,7 +10,7 @@ public class movimentacaoObjeto : MonoBehaviour {
     public float duracaoPosicao;
 
     //Tempo que ele ainda está na mesmaPosicao;
-    private float tempo;
+    public float tempo;
 
     //Guarda a direcao que o objeto está andando.
     //1 = direita.
