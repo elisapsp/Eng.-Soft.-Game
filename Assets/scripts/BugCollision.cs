@@ -16,6 +16,7 @@ public class BugCollision : MonoBehaviour {
     private int direcao;
     private int lastdirecao;
 
+    
     // Use this for initialization
     void Start () {
 
@@ -39,14 +40,30 @@ public class BugCollision : MonoBehaviour {
        
         animator.transform.Rotate(0, 180, 0);
         }
+        
     }
+
+    
 
     //Se colidir, então muda de direcao.
     void OnCollisionEnter2D(Collision2D colisor)
     {
             gameObject.GetComponent<movimentacaoObjeto>().direcao *= -1;
-            gameObject.GetComponent<movimentacaoObjeto>().tempo = gameObject.GetComponent<movimentacaoObjeto>().duracaoPosicao - gameObject.GetComponent<movimentacaoObjeto>().tempo;   
+            gameObject.GetComponent<movimentacaoObjeto>().tempo = gameObject.GetComponent<movimentacaoObjeto>().duracaoPosicao - gameObject.GetComponent<movimentacaoObjeto>().tempo;
 
+       
+        if (colisor.gameObject.name == "Player")
+        {
+            if (colisor.gameObject.GetComponentInChildren<colideChaoVerificador>().colisaoPassiva == 0)
+            {
+                colisor.gameObject.GetComponent<Transform>().position = new Vector3(0f, -0.7f, 0f);
+            }
+            
+
+        }
+
+        
+        
     }
 
 

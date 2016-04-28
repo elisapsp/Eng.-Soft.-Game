@@ -32,6 +32,7 @@ public class mantemPlayerEmCima : MonoBehaviour {
         {
             //Então, o transform do player deixará de seguir as características do objeto atual.
             colisor.gameObject.transform.parent = null;
+          
         }
     }
 }

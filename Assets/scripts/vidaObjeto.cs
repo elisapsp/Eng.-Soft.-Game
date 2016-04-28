@@ -31,7 +31,7 @@ public class vidaObjeto : MonoBehaviour {
 
         if (vidaAtual <= 0)
         {
-            Application.LoadLevel(Application.loadedLevel);
+            DestroyObject(gameObject.transform.parent.gameObject);
         }
 
         if ((vidaAtual * 100 / maxVida) < 30)
