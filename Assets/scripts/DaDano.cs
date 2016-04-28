@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DaDano : MonoBehaviour {
-   
+
     public int dano;
     public bool destroiAtacante;
 
@@ -21,29 +21,46 @@ public class DaDano : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D colisor)
     {
-        if (colisor.gameObject.tag == "Player")
+        //Se a colisão for com o inimigo.
+        if (colisor.gameObject.tag == "Inimigo")
         {
-            var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
-            player.PerdeVida(dano);
+            //Tira vida do inimigo.
+            var inimigo = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
+            inimigo.PerdeVida(dano);
+
+        
         }
-        if (destroiAtacante)
-        { 
-            Destroy(gameObject);
+
+        //Se for tiro.
+        if (gameObject.tag == "Tiro")
+        {
+            //Se a colisao não for com o player.
+            if (colisor.gameObject.tag != "Player")
+            {
+                //Se destroiAtacante tiver habilitado.
+                if (destroiAtacante)
+                {
+                    //destroi o atacante.
+                    Destroy(gameObject);
+                }
+                
+            }
+
         }
+        //Se não for tiro.
+        else
+        {
+            //Se destroiAtacante tiver habilitado.
+            if (destroiAtacante)
+            {
+                //destroi o atacante.
+                Destroy(gameObject);
+            }
+        }
+
     }
 
-    void OnCollisionEnter2D(Collision2D colisor)
-    {
-        if (colisor.gameObject.tag == "Player")
-        {
-            var player = colisor.gameObject.GetComponentInChildren<vidaObjeto>();
-            player.PerdeVida(dano);
-        }
-        if (destroiAtacante)
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 
 
 

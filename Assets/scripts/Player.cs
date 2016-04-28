@@ -4,9 +4,18 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
+    public GameObject Tiro1;
+    public GameObject Tiro2;
+    public float tempoRecargaArma  = 0.2f;
+    private float tempoRecargaCorrenteArma;
     // Use this for initialization
 
-   
+    //0 = pulo duplo.
+    //1 = Tiro1.
+    //2 = Tiro2.
+    public int nivelDebug = 0;
+
+    public float direcao = 0;
     public float velocidade = 3;
     public float forcaPulo = 150;
 
@@ -32,6 +41,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Movimentacao();
+        ArmaDebugger();
         reset();
 	}
 
@@ -72,9 +82,9 @@ public class Player : MonoBehaviour {
             
 
         }
-
+        direcao = Input.GetAxisRaw("Horizontal");
         //GetAxisRaw("Horizontal") é um método que retorna 1 quando pressionado a seta da direita e -1 quando pressionado a seta da esquerda.
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (direcao > 0)
         {
             //transform é responsável por todas as ações e valores da seção transform do objeto (lá no inspector).
             //Translate significa que o objeto deve movimentar.
@@ -85,7 +95,7 @@ public class Player : MonoBehaviour {
             transform.eulerAngles = new Vector2(0,0);
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (direcao < 0)
         {
             transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
@@ -107,8 +117,37 @@ public class Player : MonoBehaviour {
         }
 
 
-
-
-
     }
+
+    void ArmaDebugger()
+    {
+        tempoRecargaCorrenteArma += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            
+
+            if (tempoRecargaCorrenteArma >= tempoRecargaArma) { 
+
+            if (nivelDebug == 1)
+            {
+                //Cria Tiro1
+                Instantiate(Tiro1, transform.position, Tiro1.transform.rotation);
+
+            }
+            else if (nivelDebug == 2)
+            {
+                //Cria tiro2.
+                Instantiate(Tiro2, transform.position, Tiro2.transform.rotation);
+            }
+            else
+            {
+                Debug.Log("Você precisa melhorar seu nível de Debug para ser utilizado desta forma.");
+            }
+
+                tempoRecargaCorrenteArma = 0;
+            }
+
+
+        }
+    }
+
 }
