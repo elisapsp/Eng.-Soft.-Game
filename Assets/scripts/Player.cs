@@ -4,20 +4,37 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
+    private GameObject recursos;
+
+    private int nivelDebug;
     public GameObject Tiro1;
     public GameObject Tiro2;
     public float tempoRecargaArma  = 0.2f;
     private float tempoRecargaCorrenteArma;
-    // Use this for initialization
 
-    //0 = pulo duplo.
-    //1 = Tiro1.
-    //2 = Tiro2.
-    public int nivelDebug = 0;
+    public float duracaoRecursos = 3.0f;
+
+    private float tempoUsoCafe;
+    private bool usandoCafe;
+    private float velocidadeCafe = 0f;
+    
+    private float tempoUsoPraticasMotivacionais;
+    private bool usandoPraticasMotivacionais;
+    private float velocidadePraticasMotivacionais = 0f;
+
+    private float forcaAumentoSalario = 0f;
+    private bool usandoAumentoSalario;
+    private float tempoUsoAumentoSalario;
 
     public float direcao = 0;
-    public float velocidade = 3;
-    public float forcaPulo = 150;
+    public float velocidadeInicial = 2; //Velocidade sem adição de recursos.
+    public float velocidade; //velocidade do jogador.
+
+    public float forcaPuloInicial = 150;
+    public float forcaPulo;    
+
+
+
 
     //pegará o conteúdo do objeto nerdGuy (no qual está setado todas as animações e etc).
     public Transform spritePlayer;
@@ -25,7 +42,7 @@ public class Player : MonoBehaviour {
 
     //Verifica se o personagem está no chão.
     private bool estaNoChao;
-    private int maxJumps = 2;
+    private int maxJumps = 1;
     private int jumps = 0;
 
     //Pega a posição do objeto chaoVerificador.
@@ -35,13 +52,19 @@ public class Player : MonoBehaviour {
 
         //Quando o script for criado, vamos jogar as configurações da aba Animator referente ao nerdGuy na variável animator.
         animator = spritePlayer.GetComponent<Animator>();
-
+        recursos = GameObject.Find("Main Camera/GerenciarTime");
+        velocidade = velocidadeInicial;
+        forcaPulo = forcaPuloInicial;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        usoAumentoSalario();
+        usoCafe();
+        usoPraticasMotivacionais();
         Movimentacao();
         ArmaDebugger();
+        TreinamentoSCRUM();
         reset();
 	}
 
@@ -62,6 +85,9 @@ public class Player : MonoBehaviour {
 
 
     void Movimentacao() {
+
+        velocidade = velocidadeInicial + velocidadeCafe + velocidadePraticasMotivacionais;
+        forcaPulo = forcaPuloInicial + forcaAumentoSalario;
 
         //Irá jogar dentro do parâmetro movimento, um valor 0 ou maior que 0.
         animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
@@ -119,14 +145,154 @@ public class Player : MonoBehaviour {
 
     }
 
+
+    void usoAumentoSalario()
+    {
+        tempoUsoAumentoSalario += Time.deltaTime;
+
+        //Se estiver carregado pronto para uso.
+        if (tempoUsoAumentoSalario >= duracaoRecursos)
+        {
+            //Se já estiver usando (significa que acabou o tempo de uso).
+            if (usandoAumentoSalario == true)
+            {
+                //Seta usando == false.
+                usandoAumentoSalario = false;
+                //Coloca a forca adicional em 0.
+                forcaAumentoSalario = 0f;
+                //Deixa pronto para usar novamente.
+                tempoUsoAumentoSalario = duracaoRecursos;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (recursos.GetComponent<Recursos>().aumentoSalario > 0)
+            {
+                if (tempoUsoAumentoSalario >= duracaoRecursos)
+                {
+
+
+                    forcaAumentoSalario = 100f;
+                    usandoAumentoSalario = true;
+                    //Consome o recurso.
+                    recursos.GetComponent<Recursos>().aumentoSalario--;
+                }
+
+            }
+            else
+            {
+                Debug.Log("Não há recursos para aumento de salário.");
+            }
+            tempoUsoAumentoSalario = 0f;
+        }
+    }
+
+    void usoCafe()
+    {
+        tempoUsoCafe += Time.deltaTime;
+
+        //Se estiver carregado pronto para uso.
+        if (tempoUsoCafe >= duracaoRecursos)
+        {
+            //Se já estiver usando (significa que acabou o tempo de uso).
+            if (usandoCafe == true)
+            {
+                //Seta usando == false.
+                usandoCafe = false;
+                //Coloca a velocidade em 0.
+                velocidadeCafe = 0f;
+                //Deixa pronto para usar novamente.
+                tempoUsoCafe = duracaoRecursos;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (recursos.GetComponent<Recursos>().Cafe > 0)
+            {
+                   if (tempoUsoCafe >= duracaoRecursos)
+                    {
+                
+
+                    velocidadeCafe = 1.0f;
+                    usandoCafe = true;
+                    //Consome o recurso.
+                    recursos.GetComponent<Recursos>().Cafe--;
+                }
+                
+            }
+            else
+            {
+                Debug.Log("Não há mais Café.");
+            }
+            tempoUsoCafe = 0f;
+        }
+
+    }
+
+
+
+    void usoPraticasMotivacionais()
+    {
+        tempoUsoPraticasMotivacionais += Time.deltaTime;
+
+        //Se estiver carregado pronto para uso.
+        if (tempoUsoPraticasMotivacionais >= duracaoRecursos)
+        {
+            //Se já estiver usando (significa que acabou o tempo de uso).
+            if (usandoPraticasMotivacionais == true) {
+                //Seta usando == false.
+                usandoPraticasMotivacionais = false;
+                //Coloca a velocidade em 0.
+                velocidadePraticasMotivacionais = 0f;
+                //Deixa pronto para usar novamente.
+                tempoUsoPraticasMotivacionais = duracaoRecursos;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (recursos.GetComponent<Recursos>().PraticasMotivacionais > 0)
+            {
+                if (tempoUsoPraticasMotivacionais >= duracaoRecursos)
+                {
+                
+
+                    velocidadePraticasMotivacionais = 1.0f;
+                    usandoPraticasMotivacionais = true;
+                    //Consome o recurso.
+                    recursos.GetComponent<Recursos>().PraticasMotivacionais--;
+                }
+                
+            }
+            else
+            {
+                Debug.Log("Não há mais recursos para PraticasMotivacionais.");
+            }
+            tempoUsoPraticasMotivacionais = 0f;
+        }
+
+    }
+
+   
+
+    //Tiros
     void ArmaDebugger()
     {
+        nivelDebug = recursos.GetComponent<Recursos>().nivelDebug;
         tempoRecargaCorrenteArma += Time.deltaTime;
+
+        if (tempoRecargaCorrenteArma >= tempoRecargaArma)
+        {
+            tempoRecargaCorrenteArma = tempoRecargaArma;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space)) {
             
 
-            if (tempoRecargaCorrenteArma >= tempoRecargaArma) { 
-
+            if (tempoRecargaCorrenteArma >= tempoRecargaArma) {
+                
             if (nivelDebug == 1)
             {
                 //Cria Tiro1
@@ -143,11 +309,26 @@ public class Player : MonoBehaviour {
                 Debug.Log("Você precisa melhorar seu nível de Debug para ser utilizado desta forma.");
             }
 
-                tempoRecargaCorrenteArma = 0;
+                tempoRecargaCorrenteArma = 0f;
             }
 
 
         }
+    }
+
+    //Pulo Duplo
+    void TreinamentoSCRUM()
+    {
+
+        if (recursos.GetComponent<Recursos>().ConhecimentoSCRUM == true)
+        {
+            maxJumps = 2;
+        }
+        else
+        {
+            maxJumps = 1;
+        }
+
     }
 
 }

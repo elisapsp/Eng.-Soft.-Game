@@ -83,6 +83,7 @@
     <Compile Include="Assets\scripts\GUITextureAboveObject.cs" />
     <Compile Include="Assets\scripts\PlataformaCai.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
+    <Compile Include="Assets\scripts\Recursos.cs" />
     <Compile Include="Assets\scripts\RespawnObjeto.cs" />
     <Compile Include="Assets\scripts\bolaFogo.cs" />
     <Compile Include="Assets\scripts\camera.cs" />
