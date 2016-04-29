@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
     private GameObject recursos;
+    public GameObject controleVersao;
 
     private int nivelDebug;
     public GameObject Tiro1;
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        colocarControleVersao();
         usoAumentoSalario();
         usoCafe();
         usoPraticasMotivacionais();
@@ -145,6 +147,25 @@ public class Player : MonoBehaviour {
 
     }
 
+
+    void colocarControleVersao()
+    {
+        //Colocar eles dentro de um único objeto chamado GitHub?
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (recursos.GetComponent<Recursos>().controleVersao > 0)
+            {
+                Instantiate(controleVersao, transform.position, controleVersao.transform.rotation);
+                recursos.GetComponent<Recursos>().controleVersao--;
+            }
+            else
+            {
+                Debug.Log("Não é mais possivel fazer mais commit das versões.");
+            }
+        }
+    }
 
     void usoAumentoSalario()
     {
@@ -330,5 +351,7 @@ public class Player : MonoBehaviour {
         }
 
     }
+
+    
 
 }

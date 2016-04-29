@@ -89,6 +89,7 @@
     <Compile Include="Assets\scripts\camera.cs" />
     <Compile Include="Assets\scripts\cogumelo.cs" />
     <Compile Include="Assets\scripts\colideChaoVerificador.cs" />
+    <Compile Include="Assets\scripts\controleVersao.cs" />
     <Compile Include="Assets\scripts\lava.cs" />
     <Compile Include="Assets\scripts\mantemPlayerEmCima.cs" />
     <Compile Include="Assets\scripts\movimentacaoObjeto.cs" />
