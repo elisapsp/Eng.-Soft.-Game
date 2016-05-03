@@ -26,14 +26,10 @@ public class lava : MonoBehaviour {
     {
         if (colisor.gameObject.tag == "Player")
         {
-            
-            //Coloca o player na posição 0,0,0.
-            player.position = new Vector3(0, 0, 0);
-            //TODO: Substituir isso para colocar o player na ultima posicao do checkpoint.
 
-            //Reseta o jogo.
-            //Com o Application.LoadLevel() é que se muda as fases do Jogo (são as Scenes).
-            //Application.LoadLevel(Application.loadedLevel);
+            //deve voltar para o ultimo checkpoint salvo e reduzir o tempo do jogo em um valor.
+            player.position = new Vector3(0, 0, 0);
+            
 
         }
     }

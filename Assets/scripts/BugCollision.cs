@@ -54,9 +54,17 @@ public class BugCollision : MonoBehaviour {
        
         if (colisor.gameObject.name == "Player")
         {
-            if (colisor.gameObject.GetComponentInChildren<colideChaoVerificador>().colisaoPassiva == 0)
+            if (colisor.gameObject.GetComponent<Rigidbody2D>().velocity.y != 0 && TipoBug!= 3)
             {
-                colisor.gameObject.GetComponent<Transform>().position = new Vector3(0f, -0.7f, 0f);
+                gameObject.GetComponentInChildren<vidaObjeto>().PerdeVida(10);
+                colisor.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up*200f);
+
+            }
+            else
+            {
+                //deve voltar para o ultimo checkpoint salvo e reduzir o tempo do jogo em um valor.
+
+                colisor.gameObject.GetComponent<Transform>().position = new Vector3(0, 0, 0);
             }
             
 
