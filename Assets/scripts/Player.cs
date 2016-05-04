@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     //Script que contem as funcoes de usarRecursos.
     private usaRecursos meusRecursos;
 
-    private GameObject recursos;
+
     
     
   
@@ -47,7 +47,6 @@ public class Player : MonoBehaviour {
 
         //Quando o script for criado, vamos jogar as configurações da aba Animator referente ao nerdGuy na variável animator.
         animator = spritePlayer.GetComponent<Animator>();
-        recursos = GameObject.Find("Main Camera/GerenciarTime");
         velocidade = velocidadeInicial;
         forcaPulo = forcaPuloInicial;
     }

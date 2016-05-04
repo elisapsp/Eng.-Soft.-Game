@@ -13,8 +13,10 @@ public class controleVersao : MonoBehaviour {
 	public string Log;
 
 	public void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.name == "Player") { 
 		GerenciadorJogo.instance.posicaoSalva = collider.transform.position;
 		print(Log);
-	}
+        }
+    }
 
 }
