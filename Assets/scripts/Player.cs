@@ -4,38 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
+
+    //Script que contem as funcoes de usarRecursos.
+    private usaRecursos meusRecursos;
+
     private GameObject recursos;
-    public GameObject controleVersao;
-
-    private int nivelDebug;
-    public GameObject Tiro1;
-    public GameObject Tiro2;
-    public float tempoRecargaArma  = 0.2f;
-    private float tempoRecargaCorrenteArma;
-
-    public float duracaoRecursos = 3.0f;
-
-    private float tempoUsoCafe;
-    private bool usandoCafe;
-    private float velocidadeCafe = 0f;
     
-    private float tempoUsoPraticasMotivacionais;
-    private bool usandoPraticasMotivacionais;
-    private float velocidadePraticasMotivacionais = 0f;
+    
+  
 
-    private float forcaAumentoSalario = 0f;
-    private bool usandoAumentoSalario;
-    private float tempoUsoAumentoSalario;
-
-    public float direcao = 0;
-    public float velocidadeInicial = 2; //Velocidade sem adição de recursos.
+   
+    private float velocidadeInicial = 2; //Velocidade sem adição de recursos.
     public float velocidade; //velocidade do jogador.
 
-    public float forcaPuloInicial = 150;
-    public float forcaPulo;    
+    private float forcaPuloInicial = 150;
+    public float forcaPulo;
 
-
-
+    public int maxJumps = 1;
+    private int jumps = 0;
 
     //pegará o conteúdo do objeto nerdGuy (no qual está setado todas as animações e etc).
     public Transform spritePlayer;
@@ -43,13 +29,21 @@ public class Player : MonoBehaviour {
 
     //Verifica se o personagem está no chão.
     private bool estaNoChao;
-    private int maxJumps = 1;
-    private int jumps = 0;
 
     //Pega a posição do objeto chaoVerificador.
     public Transform chaoVerificador;
 
+    // Hides var in inspector
+    [HideInInspector] public float direcao = 0; //guarda todas as direções do player.
+    [HideInInspector] public float ultimaDirecaoTiro; //guarda a ultima direcao que o player estava andando (-1 ou 1) para saber em qual direcao atirar.
+
+
+
     void Start () {
+
+        meusRecursos = gameObject.GetComponent<usaRecursos>();
+
+
 
         //Quando o script for criado, vamos jogar as configurações da aba Animator referente ao nerdGuy na variável animator.
         animator = spritePlayer.GetComponent<Animator>();
@@ -60,13 +54,17 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        colocarControleVersao();
-        usoAumentoSalario();
-        usoCafe();
-        usoPraticasMotivacionais();
+
+        
+
+        meusRecursos.colocarControleVersao();
+        meusRecursos.usoAumentoSalario();
+        meusRecursos.usoCafe();
+        meusRecursos.usoPraticasMotivacionais();
+        meusRecursos.ArmaDebugger();
+        meusRecursos.TreinamentoSCRUM();
+
         Movimentacao();
-        ArmaDebugger();
-        TreinamentoSCRUM();
         reset();
 	}
 
@@ -88,8 +86,8 @@ public class Player : MonoBehaviour {
 
     void Movimentacao() {
 
-        velocidade = velocidadeInicial + velocidadeCafe + velocidadePraticasMotivacionais;
-        forcaPulo = forcaPuloInicial + forcaAumentoSalario;
+        velocidade = velocidadeInicial + meusRecursos.velocidadeCafe + meusRecursos.velocidadePraticasMotivacionais;
+        forcaPulo = forcaPuloInicial + meusRecursos.forcaAumentoSalario;
 
         //Irá jogar dentro do parâmetro movimento, um valor 0 ou maior que 0.
         animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
@@ -114,6 +112,7 @@ public class Player : MonoBehaviour {
         //GetAxisRaw("Horizontal") é um método que retorna 1 quando pressionado a seta da direita e -1 quando pressionado a seta da esquerda.
         if (direcao > 0)
         {
+            ultimaDirecaoTiro = direcao;
             //transform é responsável por todas as ações e valores da seção transform do objeto (lá no inspector).
             //Translate significa que o objeto deve movimentar.
             //Vector2.right significa que deve movimentar para a direita.
@@ -125,6 +124,7 @@ public class Player : MonoBehaviour {
 
         if (direcao < 0)
         {
+            ultimaDirecaoTiro = direcao;
             transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
         }
@@ -148,210 +148,8 @@ public class Player : MonoBehaviour {
     }
 
 
-    void colocarControleVersao()
-    {
-        //Colocar eles dentro de um único objeto chamado GitHub?
-
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (recursos.GetComponent<Recursos>().controleVersao > 0)
-            {
-                Instantiate(controleVersao, transform.position, controleVersao.transform.rotation);
-                recursos.GetComponent<Recursos>().controleVersao--;
-            }
-            else
-            {
-                Debug.Log("Não é mais possivel fazer mais commit das versões.");
-            }
-        }
-    }
-
-    void usoAumentoSalario()
-    {
-        tempoUsoAumentoSalario += Time.deltaTime;
-
-        //Se estiver carregado pronto para uso.
-        if (tempoUsoAumentoSalario >= duracaoRecursos)
-        {
-            //Se já estiver usando (significa que acabou o tempo de uso).
-            if (usandoAumentoSalario == true)
-            {
-                //Seta usando == false.
-                usandoAumentoSalario = false;
-                //Coloca a forca adicional em 0.
-                forcaAumentoSalario = 0f;
-                //Deixa pronto para usar novamente.
-                tempoUsoAumentoSalario = duracaoRecursos;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (recursos.GetComponent<Recursos>().aumentoSalario > 0)
-            {
-                if (tempoUsoAumentoSalario >= duracaoRecursos)
-                {
-
-
-                    forcaAumentoSalario = 100f;
-                    usandoAumentoSalario = true;
-                    //Consome o recurso.
-                    recursos.GetComponent<Recursos>().aumentoSalario--;
-                }
-
-            }
-            else
-            {
-                Debug.Log("Não há recursos para aumento de salário.");
-            }
-            tempoUsoAumentoSalario = 0f;
-        }
-    }
-
-    void usoCafe()
-    {
-        tempoUsoCafe += Time.deltaTime;
-
-        //Se estiver carregado pronto para uso.
-        if (tempoUsoCafe >= duracaoRecursos)
-        {
-            //Se já estiver usando (significa que acabou o tempo de uso).
-            if (usandoCafe == true)
-            {
-                //Seta usando == false.
-                usandoCafe = false;
-                //Coloca a velocidade em 0.
-                velocidadeCafe = 0f;
-                //Deixa pronto para usar novamente.
-                tempoUsoCafe = duracaoRecursos;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (recursos.GetComponent<Recursos>().Cafe > 0)
-            {
-                   if (tempoUsoCafe >= duracaoRecursos)
-                    {
-                
-
-                    velocidadeCafe = 1.0f;
-                    usandoCafe = true;
-                    //Consome o recurso.
-                    recursos.GetComponent<Recursos>().Cafe--;
-                }
-                
-            }
-            else
-            {
-                Debug.Log("Não há mais Café.");
-            }
-            tempoUsoCafe = 0f;
-        }
-
-    }
-
-
-
-    void usoPraticasMotivacionais()
-    {
-        tempoUsoPraticasMotivacionais += Time.deltaTime;
-
-        //Se estiver carregado pronto para uso.
-        if (tempoUsoPraticasMotivacionais >= duracaoRecursos)
-        {
-            //Se já estiver usando (significa que acabou o tempo de uso).
-            if (usandoPraticasMotivacionais == true) {
-                //Seta usando == false.
-                usandoPraticasMotivacionais = false;
-                //Coloca a velocidade em 0.
-                velocidadePraticasMotivacionais = 0f;
-                //Deixa pronto para usar novamente.
-                tempoUsoPraticasMotivacionais = duracaoRecursos;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if (recursos.GetComponent<Recursos>().PraticasMotivacionais > 0)
-            {
-                if (tempoUsoPraticasMotivacionais >= duracaoRecursos)
-                {
-                
-
-                    velocidadePraticasMotivacionais = 1.0f;
-                    usandoPraticasMotivacionais = true;
-                    //Consome o recurso.
-                    recursos.GetComponent<Recursos>().PraticasMotivacionais--;
-                }
-                
-            }
-            else
-            {
-                Debug.Log("Não há mais recursos para PraticasMotivacionais.");
-            }
-            tempoUsoPraticasMotivacionais = 0f;
-        }
-
-    }
-
-   
-
-    //Tiros
-    void ArmaDebugger()
-    {
-        nivelDebug = recursos.GetComponent<Recursos>().nivelDebug;
-        tempoRecargaCorrenteArma += Time.deltaTime;
-
-        if (tempoRecargaCorrenteArma >= tempoRecargaArma)
-        {
-            tempoRecargaCorrenteArma = tempoRecargaArma;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            
-
-            if (tempoRecargaCorrenteArma >= tempoRecargaArma) {
-                
-            if (nivelDebug == 1)
-            {
-                //Cria Tiro1
-                Instantiate(Tiro1, transform.position, Tiro1.transform.rotation);
-
-            }
-            else if (nivelDebug == 2)
-            {
-                //Cria tiro2.
-                Instantiate(Tiro2, transform.position, Tiro2.transform.rotation);
-            }
-            else
-            {
-                Debug.Log("Você precisa melhorar seu nível de Debug para ser utilizado desta forma.");
-            }
-
-                tempoRecargaCorrenteArma = 0f;
-            }
-
-
-        }
-    }
-
-    //Pulo Duplo
-    void TreinamentoSCRUM()
-    {
-
-        if (recursos.GetComponent<Recursos>().ConhecimentoSCRUM == true)
-        {
-            maxJumps = 2;
-        }
-        else
-        {
-            maxJumps = 1;
-        }
-
-    }
-
     
+
+
 
 }

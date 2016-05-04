@@ -11,7 +11,7 @@ public class tiro : MonoBehaviour {
     private float yPos;
     private float zPos;
     public float velocidade;
- 
+  
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,8 @@ public class tiro : MonoBehaviour {
         player = GameObject.Find("Player");
         gameObject.transform.parent = player.transform;
 
-        direcao = gameObject.GetComponentInParent<Player>().direcao;
+        //o tiro sempre irá para o lado da ultima direcao que o player andou.
+        direcao = gameObject.GetComponentInParent<Player>().ultimaDirecaoTiro;
        
 
         yPos = gameObject.GetComponentInParent<Player>().transform.position.y - 0.07f;
@@ -28,7 +29,7 @@ public class tiro : MonoBehaviour {
         velocidade = 1f;
         gameObject.transform.parent = null;
  
-        if (direcao >= 0)
+        if (direcao > 0)
         {
             direcao = 1f;
             transform.eulerAngles = new Vector2(0, 0);
