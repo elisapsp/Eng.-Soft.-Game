@@ -16,11 +16,13 @@ public class pedacoSoftware : MonoBehaviour {
 		inventory = GameObject.FindGameObjectWithTag("Inventario").GetComponent<Inventory>();
 		animator = spritePedacoSoftware.GetComponent<Animator>();
 		sprite = spritePedacoSoftware.GetComponent<SpriteRenderer>().sprite;
+        
 	}
 	
 	void Update () {
         //Seta a variavel do animator que mudará o numero desenhado no sprite.
         animator.SetInteger("Tipo", tipo);
+        
 
         switch (color)
         {
