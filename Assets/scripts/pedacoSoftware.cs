@@ -9,17 +9,15 @@ public class pedacoSoftware : MonoBehaviour {
     public int tipo;
     public string color;
     public bool funciona;
+	private Inventory inventory;
+	internal Sprite sprite;
 
-	// Use this for initialization
-	void Start () {
-        animator = spritePedacoSoftware.GetComponent<Animator>();
-        
-        
-     
-
-    }
+	void Awake() {
+		inventory = GameObject.FindGameObjectWithTag("Inventario").GetComponent<Inventory>();
+		animator = spritePedacoSoftware.GetComponent<Animator>();
+		sprite = spritePedacoSoftware.GetComponent<SpriteRenderer>().sprite;
+	}
 	
-	// Update is called once per frame
 	void Update () {
         //Seta a variavel do animator que mudará o numero desenhado no sprite.
         animator.SetInteger("Tipo", tipo);
@@ -53,4 +51,11 @@ public class pedacoSoftware : MonoBehaviour {
         }
 
     }
+
+	void OnTriggerEnter2D(Collider2D collision) {
+		if (this.gameObject.activeSelf) {
+			inventory.AdicionaTipoDeSoftware(this);
+			this.gameObject.SetActive(false);
+		}
+	}
 }
