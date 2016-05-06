@@ -8,7 +8,7 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
     public string color;
 
-
+    /*
     public GameObject item
     {
         get
@@ -22,7 +22,7 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
 
     }
-
+    */
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop to " + gameObject.name);
@@ -32,13 +32,17 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
        
 
-    
+    /*
         if (!item)
         {
+            Debug.Log("TESTE");
             eventData.pointerDrag.transform.SetParent(transform);
         }
+        */
+        /*
         else
         {
+        */
             //Debug.Log("Impossivel colocar o "+ eventData.pointerDrag.name + " neste espaço.\n O slot " + gameObject.name + " está ocupado pelo " + gameObject.GetComponentInChildren<Transform>().transform.gameObject.name);
 
             Debug.Log("Objeto que está ocupando o lugar: " + gameObject.transform.GetChild(0).name);
@@ -51,7 +55,9 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
             gameObject.transform.GetChild(0).SetParent(eventData.pointerDrag.transform.parent);
             //O objeto que está tentando entrar deve ir para o lugar que ele estava tentando.
             eventData.pointerDrag.transform.SetParent(transform);
-        }
+        /*
+    }
+    */
     }
 
     //Mostra cada objeto que o mouse passar por cima.
@@ -70,9 +76,19 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
     void Update()
     {
-
+        //Se exisitir o pedacoSoftware naquele slot (no objeto "Vazio" do slot).
+        if (transform.GetChild(0).GetComponent<Image>().enabled == true)
+        {
+            //Coloca a cor do slot com a mesma cor do pedacoSoftware qeu está ocupando o objetoVazio.
+            gameObject.GetComponent<Image>().color = transform.GetChild(0).GetComponent<Image>().color;
+        }
+        else
+        {
+            //Senão, reseta as cores para o padrão.
+            gameObject.GetComponent<Image>().color = new Color(248f / 255f, 248f / 255f, 248f / 255f, 1f);
+            transform.GetChild(0).GetComponent<Image>().color = new Color(248f / 255f, 248f / 255f, 248f / 255f, 1f);
+        }
        
-
         //Adiciona cor ao slot.
         //gameObject.GetComponent<Image>().color = Color.red;
 
