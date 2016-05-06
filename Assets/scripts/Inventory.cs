@@ -68,6 +68,7 @@ public class Inventory : MonoBehaviour, IHasChanged {
         int indexTipo;
         int Tipo;
 
+        int totalPedacosSoftware = 0;
         int pedacosFuncionando = 0;
         int pedacosComDefeito = 0;
         int pedacosNaoTestados = 0;
@@ -83,7 +84,9 @@ public class Inventory : MonoBehaviour, IHasChanged {
             //Se o pedacoDeSoftware estiver lá.
             if (image.enabled == true)
             {
-                
+                //Conta o numero de pedacosDeSoftware existentes.
+                totalPedacosSoftware++;
+
                 Tipo = indentificaTipo(transf.name);
                 indexTipo = Tipo - 1;
 
@@ -122,6 +125,7 @@ public class Inventory : MonoBehaviour, IHasChanged {
 
 
         }
+        Debug.Log("Numero de pedacos de Software desenvolvidos: " + totalPedacosSoftware + "\n");
         Debug.Log("Numero de pedacos de Software com defeitos encontrados:" + pedacosComDefeito.ToString() + "\n");
         Debug.Log("Numero de pedacos de Software funcionando:" + pedacosFuncionando.ToString() + "\n");
         Debug.Log("Numero de pedacos de Software não testados:" + pedacosNaoTestados.ToString() + " (Motivo: Testadores para os respectivos pedacos de Software não foram contratados" + "\n");
