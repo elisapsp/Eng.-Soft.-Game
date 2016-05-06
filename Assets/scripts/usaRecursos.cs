@@ -3,9 +3,12 @@ using System.Collections;
 
 public class usaRecursos : MonoBehaviour {
 
+    private GameObject inventario;
+
     private GameObject recursos;
     private GameObject player;
     private Player playerScript;
+    
 
     private int nivelDebug;
     public GameObject Tiro1;
@@ -28,7 +31,6 @@ public class usaRecursos : MonoBehaviour {
     public GameObject controleVersao;
 
     public float duracaoRecursos = 3.0f;
-
     
 
     // Use this for initialization
@@ -37,6 +39,7 @@ public class usaRecursos : MonoBehaviour {
         player = gameObject.GetComponentInParent<Transform>().transform.gameObject;
         playerScript = player.GetComponent<Player>();
         recursos = GameObject.Find("Main Camera/GerenciarTime");
+        inventario = GameObject.Find("Canvas/Inventario");
 
     }
 	
@@ -248,6 +251,43 @@ public class usaRecursos : MonoBehaviour {
             {
                 Debug.Log("Não é mais possivel fazer mais commit das versões.");
             }
+        }
+    }
+
+    public void aumentaInventarioDesenvolvedores()
+    {
+        if (recursos.GetComponent<Recursos>().desenvolvedores >= 0)
+        {
+            inventario.transform.FindChild("Linha1").gameObject.SetActive(true);
+
+            if (recursos.GetComponent<Recursos>().desenvolvedores >= 1)
+            {
+                inventario.transform.FindChild("Linha2").gameObject.SetActive(true);
+
+                if (recursos.GetComponent<Recursos>().desenvolvedores >= 2)
+                {
+                    inventario.transform.FindChild("Linha3").gameObject.SetActive(true);
+
+                    if (recursos.GetComponent<Recursos>().desenvolvedores >= 3)
+                    {
+                        inventario.transform.FindChild("Linha4").gameObject.SetActive(true);
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public void TestaPedacosSoftware()
+    {
+        //Isso deve mudar depois. Ao invés de apertar T, o jogador terá que apertar o botão que estará disponível para testar código.
+        if (Input.GetKeyDown("t"))
+        {
+
+            inventario.GetComponent<Inventory>().testaPedacosSoftware(recursos.GetComponent<Recursos>().testador);
         }
     }
 

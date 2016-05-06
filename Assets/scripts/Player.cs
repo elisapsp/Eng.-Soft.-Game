@@ -62,6 +62,8 @@ public class Player : MonoBehaviour {
         meusRecursos.usoPraticasMotivacionais();
         meusRecursos.ArmaDebugger();
         meusRecursos.TreinamentoSCRUM();
+        meusRecursos.aumentaInventarioDesenvolvedores();
+        meusRecursos.TestaPedacosSoftware();
 
         Movimentacao();
         reset();

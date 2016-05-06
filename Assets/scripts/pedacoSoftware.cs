@@ -3,7 +3,6 @@ using System.Collections;
 
 public class pedacoSoftware : MonoBehaviour {
 
-    
 
 
     public Transform spritePedacoSoftware;
@@ -11,7 +10,10 @@ public class pedacoSoftware : MonoBehaviour {
 
     public int tipo;
     public string color;
+
+    //Contém a resposta se o software funciona ou não.
     public bool funciona;
+
 	private Inventory inventory;
 	internal Sprite sprite;
 
@@ -60,9 +62,21 @@ public class pedacoSoftware : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D collision) {
-		if (this.gameObject.activeSelf) {
-			inventory.AdicionaTipoDeSoftware(this);
+        int checaEspacoDisponivel;
+        if (this.gameObject.activeSelf) {
+
+            //Se o pedacoSoftware for preto, significa que ele foi testado e não está funcionando.
+            if (this.gameObject.GetComponent<pedacoSoftware>().color != "black")
+            {
+
+			checaEspacoDisponivel = inventory.AdicionaTipoDeSoftware(this);
+            if (checaEspacoDisponivel == 0) { 
 			this.gameObject.SetActive(false);
-		}
+            }
+
+            }
+        }
 	}
+
+  
 }
