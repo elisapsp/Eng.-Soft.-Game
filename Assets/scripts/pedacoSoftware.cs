@@ -3,6 +3,9 @@ using System.Collections;
 
 public class pedacoSoftware : MonoBehaviour {
 
+    
+
+
     public Transform spritePedacoSoftware;
     private Animator animator;
 
@@ -15,11 +18,13 @@ public class pedacoSoftware : MonoBehaviour {
 	void Awake() {
 		inventory = GameObject.FindGameObjectWithTag("Inventario").GetComponent<Inventory>();
 		animator = spritePedacoSoftware.GetComponent<Animator>();
-		sprite = spritePedacoSoftware.GetComponent<SpriteRenderer>().sprite;
+       
+        sprite = spritePedacoSoftware.GetComponent<SpriteRenderer>().sprite;
         
 	}
 	
 	void Update () {
+        sprite = spritePedacoSoftware.GetComponent<SpriteRenderer>().sprite;
         //Seta a variavel do animator que mudará o numero desenhado no sprite.
         animator.SetInteger("Tipo", tipo);
         

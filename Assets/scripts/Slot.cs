@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.EventSystems;
 using System;
 
 public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler{
 
-   
-    
+    public string color;
+
+
     public GameObject item
     {
         get
@@ -55,13 +57,24 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
     //Mostra cada objeto que o mouse passar por cima.
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //Debug.Log("OnPointerEnter: " + gameObject.name);
        
+        //Debug.Log("OnPointerEnter: " + gameObject.name);
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         //Debug.Log("OnPointerExit: " + gameObject.name);
        
+    }
+
+    void Update()
+    {
+
+       
+
+        //Adiciona cor ao slot.
+        //gameObject.GetComponent<Image>().color = Color.red;
+
     }
 }

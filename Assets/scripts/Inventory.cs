@@ -45,7 +45,7 @@ public class Inventory : MonoBehaviour, IHasChanged {
 			if (image.enabled == false) { //encontra primeiro slot desocupado, status de ocupado/desocupado do slot é definido pelo status do componente Image no filho, que sempre está presente.
 				image.enabled = true;
 				image.sprite = pedaco.sprite;
-				transf.GetChild(0).GetComponent<Image>().GetComponent<DragHandler>().pedacoDeSoftwareFisico = pedaco.gameObject;
+                transf.GetChild(0).GetComponent<Image>().GetComponent<DragHandler>().pedacoDeSoftwareFisico = pedaco.gameObject;
 				return;
 			}
 		}
