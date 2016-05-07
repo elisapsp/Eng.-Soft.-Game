@@ -8,21 +8,6 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
     public string color;
 
-    /*
-    public GameObject item
-    {
-        get
-        {
-            if (transform.childCount > 0)
-            {
-                return transform.GetChild(0).gameObject;
-            }
-            return null;
-        }
-
-
-    }
-    */
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop to " + gameObject.name);
@@ -32,18 +17,7 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
        
 
-    /*
-        if (!item)
-        {
-            Debug.Log("TESTE");
-            eventData.pointerDrag.transform.SetParent(transform);
-        }
-        */
-        /*
-        else
-        {
-        */
-            //Debug.Log("Impossivel colocar o "+ eventData.pointerDrag.name + " neste espaço.\n O slot " + gameObject.name + " está ocupado pelo " + gameObject.GetComponentInChildren<Transform>().transform.gameObject.name);
+   
             
             Debug.Log("Objeto que está ocupando o lugar: " + gameObject.transform.GetChild(0).name);
             Debug.Log("Pai do objeto que está ocupando o lugar: " + gameObject.name);
@@ -94,8 +68,7 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
             transform.GetChild(0).name = "Vazio";
         }
        
-        //Adiciona cor ao slot.
-        //gameObject.GetComponent<Image>().color = Color.red;
+        
 
     }
 }

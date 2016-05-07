@@ -78,6 +78,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ShowHideMenu.cs" />
+    <Compile Include="Assets\adicionaPontos.cs" />
+    <Compile Include="Assets\gerenciaConteudoPainel.cs" />
+    <Compile Include="Assets\lePontosTotais.cs" />
+    <Compile Include="Assets\removePontos.cs" />
     <Compile Include="Assets\scripts\BugCollision.cs" />
     <Compile Include="Assets\scripts\DaDano.cs" />
     <Compile Include="Assets\scripts\DragHandler.cs" />

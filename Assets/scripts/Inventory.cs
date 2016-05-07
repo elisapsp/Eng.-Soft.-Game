@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Linq;
 
-public class Inventory : MonoBehaviour, IHasChanged {
+public class Inventory : MonoBehaviour {
 
 
 
@@ -19,27 +19,9 @@ public class Inventory : MonoBehaviour, IHasChanged {
 	
     void Start()
     {
-        HasChanged();
+        
     }
-
-    public void HasChanged()
-    {
-        System.Text.StringBuilder builder = new System.Text.StringBuilder();
-        builder.Append(" - ");
-        foreach (Transform slotTransform in slots)
-        {
-            //GameObject item = slotTransform.GetComponent<Slot>().item;
-            /*
-            if (item)
-            {
-                builder.Append(item.name);
-                builder.Append(" - ");
-            }
-            */
-        }
-        //inventoryText.text = builder.ToString();
-    }
-
+    
     public int indentificaTipo(string nomeSlot)
     {
         if (nomeSlot == "Tipo1")
@@ -194,16 +176,3 @@ public class Inventory : MonoBehaviour, IHasChanged {
 
 }
 
-
-
-namespace UnityEngine.EventSystems
-{
-
-    public interface IHasChanged : IEventSystemHandler
-    {
-
-        void HasChanged();
-
-    }
-
-}
