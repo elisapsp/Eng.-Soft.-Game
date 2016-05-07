@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class usaRecursos : MonoBehaviour {
 
+    private GameObject Timer;
     private GameObject inventario;
 
     private GameObject recursos;
@@ -28,6 +30,8 @@ public class usaRecursos : MonoBehaviour {
     private bool usandoAumentoSalario;
     private float tempoUsoAumentoSalario;
 
+    public float adicaoTempo;
+
     public GameObject controleVersao;
 
     public float duracaoRecursos = 3.0f;
@@ -40,7 +44,7 @@ public class usaRecursos : MonoBehaviour {
         playerScript = player.GetComponent<Player>();
         recursos = GameObject.Find("GerenciarTime");
         inventario = GameObject.Find("Canvas/Inventario");
-        
+        Timer = GameObject.Find("Canvas/Timer/Panel/Text");
 
     }
 	
@@ -289,6 +293,25 @@ public class usaRecursos : MonoBehaviour {
         
             inventario.GetComponent<Inventory>().testaPedacosSoftware(recursos.GetComponent<Recursos>().testador);
         
+    }
+
+    public void organizaTempo()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            if (recursos.GetComponent<Recursos>().OrganizacaoTempo > 0)
+            {
+                Timer.GetComponent<Timer>().timer += adicaoTempo;
+                recursos.GetComponent<Recursos>().OrganizacaoTempo--;
+            }
+            else
+            {
+                Debug.Log("Não é possivel adiar mais o tempo.");
+            }
+            
+        }
+
     }
 
 }

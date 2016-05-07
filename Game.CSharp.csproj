@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ShowHideMenu.cs" />
+    <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\adicionaPontos.cs" />
     <Compile Include="Assets\gerenciaConteudoPainel.cs" />
     <Compile Include="Assets\lePontosTotais.cs" />
