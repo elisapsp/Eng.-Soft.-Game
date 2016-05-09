@@ -392,6 +392,14 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                 }
                 pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().Cafe.ToString();
                 break;
+            case "Ligar para Cliente":
+                
+                botaoAdd.GetComponent<Button>().interactable = false;
+                botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
+                botaoRm.GetComponent<Button>().interactable = false;
+                botaoRm.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
+
+                break;
             default:
                 Debug.Log("Nome do recurso no painel está diferente do nome no switch do script.");
                 break;
