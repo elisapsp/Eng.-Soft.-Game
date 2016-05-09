@@ -4,7 +4,7 @@ using System.Collections;
 public class Cliente : MonoBehaviour {
 
 
-
+    private Timer tempo;
     private softwareDesenvolvido softwarePlayer;
     
     //Contém os objetivos de cada pedaço de software que deve ser coletado.
@@ -18,7 +18,7 @@ public class Cliente : MonoBehaviour {
 	void Start () {
 
         indiceObjetivo = 0;
-
+        
 
         for (int i = 0; i < objetivo.Length; i++)
         {
@@ -51,6 +51,10 @@ public class Cliente : MonoBehaviour {
 
     public void ligacao()
     {
+        //Script do tempo da fase.
+        tempo = GameObject.Find("Canvas/Timer/Panel/Text").GetComponent<Timer>();
+        //Custo da ligação: 5 segundos do tempo da fase.
+        tempo.timer -= 5.0f;
 
         //Fará a contagem das cores entregues corretamente.
         int numCoresCorretas = 0;
@@ -233,15 +237,7 @@ public class Cliente : MonoBehaviour {
         }
         }
     }
-        /*
-        Fazer:
-
-        OnCollision: atualiza o softwarePlayer.
-
-        função verificaSoftwarePorTelefone:
-        função verificaSoftwarePresencialmente:
-
-        */
+ 
 
 
         // Update is called once per frame
