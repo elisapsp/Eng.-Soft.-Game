@@ -6,7 +6,10 @@ public class Cliente : MonoBehaviour {
 
     private Timer tempo;
     private softwareDesenvolvido softwarePlayer;
-    
+
+    //flag que mostra se o objetivo final foi concluído.
+    public bool objetivoConcluido;
+
     //Contém os objetivos de cada pedaço de software que deve ser coletado.
     public string[][] objetivo = new string[4][];
 
@@ -18,7 +21,7 @@ public class Cliente : MonoBehaviour {
 	void Start () {
 
         indiceObjetivo = 0;
-        
+        objetivoConcluido = false;
 
         for (int i = 0; i < objetivo.Length; i++)
         {
@@ -65,6 +68,11 @@ public class Cliente : MonoBehaviour {
         //contém as informações do software desenvolvido.
         softwarePlayer = GameObject.Find("Player").GetComponent<softwareDesenvolvido>();
 
+        if (indiceObjetivo > 3)
+        {
+            indiceObjetivo = 3;
+        }
+
         //pra cada tipo de software coletado.
         for (int i = 0; i < 4; i++)
         {
@@ -104,6 +112,7 @@ public class Cliente : MonoBehaviour {
             }
 
         }
+        
 
         //Se o jogador estiver com o software todo pronto e funcionando.
         if (numCoresCorretas == 4 && numFuncionando == 4)
@@ -153,6 +162,11 @@ public class Cliente : MonoBehaviour {
 
         //contém as informações do software desenvolvido.
         softwarePlayer = GameObject.Find("Player").GetComponent<softwareDesenvolvido>();
+
+            if (indiceObjetivo >3)
+            {
+                indiceObjetivo = 3;
+            }
 
         //pra cada tipo de software coletado.
         for (int i = 0; i < 4; i++)
@@ -219,7 +233,8 @@ public class Cliente : MonoBehaviour {
             //O jogador zerou o jogo.
             if (indiceObjetivo == 4)
             {
-                Debug.Log("Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!");
+                    objetivoConcluido = true;
+                    Debug.Log("Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!");
             }
             else
             {
@@ -237,7 +252,28 @@ public class Cliente : MonoBehaviour {
         }
         }
     }
- 
+
+    public void descreveObjetivo()
+    {
+        if (indiceObjetivo > 3)
+        {
+            indiceObjetivo = 3;
+        }
+
+        
+        
+            for (int i = 0; i < 4; i++)
+            {
+                Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
+            }
+        
+
+        if (objetivoConcluido == true)
+        {
+            Debug.Log("Objetivo concluído com sucesso!");
+        }
+
+    }
 
 
         // Update is called once per frame
