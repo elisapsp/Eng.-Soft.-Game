@@ -7,6 +7,7 @@ using System.Linq;
 public class Inventory : MonoBehaviour {
 
 
+    private GameObject player;
 
 	public Text inventoryText;
 	[SerializeField]
@@ -19,9 +20,10 @@ public class Inventory : MonoBehaviour {
 	
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
     
+    //Verifica qual tipo de pedaco de software existe no slot com o nome enviado por parâmetro.
     public int indentificaTipo(string nomeSlot)
     {
         if (nomeSlot == "Tipo1")
@@ -43,6 +45,70 @@ public class Inventory : MonoBehaviour {
 
         return -1;
     }
+
+
+
+    
+    //Função usada pelo cliente para verificar se o jogador cumpriu o objetivo.
+    public void AtualizaSoftwareDesenvolvido()
+    {
+
+
+        softwareDesenvolvido softwarePlayer = player.GetComponent<softwareDesenvolvido>();
+        
+        
+
+        int Tipo;
+        int indexTipo;
+        //Atualiza os slots.
+        slots = GetComponentsInChildren<Slot>().Select(s => s.transform).ToArray();
+        
+        foreach (Transform transf in slots)
+        {
+            
+           //Olha só a linha1. 
+            if (transf.parent.name == "Linha1") {
+
+             Tipo = indentificaTipo(transf.name);
+             indexTipo = Tipo - 1;
+
+            Image image = transf.GetChild(0).GetComponent<Image>();
+
+                //Se o pedacoDeSoftware estiver lá.
+                if (image.enabled == true)
+                {
+                    softwarePlayer.coletado[indexTipo] = true;
+                    softwarePlayer.cores[indexTipo] = transf.GetChild(0).GetComponent<Image>().GetComponent<DragHandler>().pedacoDeSoftwareFisico.GetComponent<pedacoSoftware>().color;
+
+                    //Se o pedacoSoftware não estiver funcionando
+                    if (transf.GetChild(0).GetComponent<Image>().GetComponent<DragHandler>().pedacoDeSoftwareFisico.GetComponent<pedacoSoftware>().funciona == false)
+                    {
+                        softwarePlayer.funciona[indexTipo] = false;
+
+
+                    }
+                    else
+                    {
+                        softwarePlayer.funciona[indexTipo] = true;
+                    }
+
+
+                }
+                else
+                {
+                    //O software não foi coletado.
+                    softwarePlayer.coletado[indexTipo] = false;
+                    softwarePlayer.funciona[indexTipo] = false;
+                    softwarePlayer.cores[indexTipo] = "";
+                    
+                }
+            }
+
+        }
+        
+        
+}
+
 
     public void testaPedacosSoftware(bool[] testadorDoTipo)
     {
