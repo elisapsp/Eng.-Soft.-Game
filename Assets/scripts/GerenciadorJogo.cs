@@ -22,7 +22,9 @@ public class GerenciadorJogo : MonoBehaviour {
 
     public Transform player;
 	public Vector3 posicaoSalva;
-	public static GerenciadorJogo instance; //singleton
+    public int countDiasTrabalhados;
+
+    public static GerenciadorJogo instance; //singleton
 
     //Contador de bugs tipo 3. É incrementado no inicio da fase, quando os bugs são criados. E é decrementado sempre que um bug crítico é destruido.
     public int numBugsCriticos;
@@ -58,7 +60,9 @@ public class GerenciadorJogo : MonoBehaviour {
         //Se tiver dado GameOver (ou seja, o Tempo do jogo ter chegado a 0).
         if (GameOver == true)
         {
-            
+            //Aumenta o numero de dias trabalhados.
+            countDiasTrabalhados++;
+
             //Entra a fase de remanejamento (GameWait == true).
             GameStart = false;
             GameWait = true;
