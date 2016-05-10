@@ -242,9 +242,7 @@ public class usaRecursos : MonoBehaviour {
 
     public void colocarControleVersao()
     {
-        //Colocar eles dentro de um único objeto chamado GitHub?
-
-
+       
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             if (recursos.GetComponent<Recursos>().controleVersao > 0)

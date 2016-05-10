@@ -22,6 +22,7 @@ public class GerenciadorJogo : MonoBehaviour {
 
     public Transform player;
 	public Vector3 posicaoSalva;
+    public Vector3 posicaoInicialPlayer;
     public int countDiasTrabalhados;
 
     public static GerenciadorJogo instance; //singleton
@@ -41,9 +42,13 @@ public class GerenciadorJogo : MonoBehaviour {
 
     void Start()
     {
+        //salva a posição inicial do player.
+        posicaoInicialPlayer = player.position;
 
-      //O jogo começa na fase de remanejamento dos recursos.
-      GameOver = false;
+        posicaoSalva = posicaoInicialPlayer;
+
+        //O jogo começa na fase de remanejamento dos recursos.
+        GameOver = false;
       GameWait = true; 
       GameStart = false;
       
@@ -75,12 +80,16 @@ public class GerenciadorJogo : MonoBehaviour {
 
             //Reseta os recursos.
             recursos.GetComponent<Recursos>().resetaRecursos();
+
+            //Coloca o jogador na posição inicial da fase.
+            player.position = posicaoInicialPlayer;
+
             /*
             Falta:
-            1 - Colocar o jogador na posição inicial da fase.
-            2 - deletar todos os checkpoints.
-             
-            */
+            
+             1 - deletar todos os checkpoints.
+        
+             */
         }
 
         //Se tiver na fase de remanejamento de recursos..
