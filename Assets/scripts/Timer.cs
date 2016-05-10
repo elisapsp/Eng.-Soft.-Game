@@ -24,10 +24,11 @@ public class Timer : MonoBehaviour {
         //Se o jogo estiver acontecendo.
         if (GerenciadorJogo.GetComponent<GerenciadorJogo>().GameOver == false &&
             GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false &&
-            GerenciadorJogo.GetComponent<GerenciadorJogo>().GameStart == false) { 
+            GerenciadorJogo.GetComponent<GerenciadorJogo>().GameStart == false)
+        {
 
-
-           
+            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == false) { 
+                   
         if (timer <= 0)
         {
             timer = 0;
@@ -38,7 +39,9 @@ public class Timer : MonoBehaviour {
         {
             timer -= Time.deltaTime;
         }
+            }
         }
+
         gameObject.GetComponent<Text>().text = timer.ToString("0");
 	}
 

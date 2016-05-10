@@ -8,9 +8,6 @@ public class Cliente : MonoBehaviour {
     private Timer tempo;
     private softwareDesenvolvido softwarePlayer;
 
-    //flag que mostra se o objetivo final foi concluído.
-    public bool objetivoConcluido;
-
     //Contém os objetivos de cada pedaço de software que deve ser coletado.
     public string[][] objetivo = new string[4][];
 
@@ -23,7 +20,7 @@ public class Cliente : MonoBehaviour {
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
         Timer = GameObject.Find("Canvas/Timer/Panel/Text");
         indiceObjetivo = 0;
-        objetivoConcluido = false;
+       
 
         for (int i = 0; i < objetivo.Length; i++)
         {
@@ -241,7 +238,8 @@ public class Cliente : MonoBehaviour {
             {
                     if (GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos == 0)
                     {
-                        objetivoConcluido = true;
+                        GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido = true;
+                        
                         Debug.Log("Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!");
                     }
                     else
@@ -282,7 +280,7 @@ public class Cliente : MonoBehaviour {
             }
 
         Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
-        if (objetivoConcluido == true)
+        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == true)
         {
             Debug.Log("Objetivo concluído com sucesso!");
         }

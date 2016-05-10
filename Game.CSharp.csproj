@@ -78,7 +78,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\espinho.cs" />
     <Compile Include="Assets\scripts\AtualizaAvisoMenuGerenciarTime.cs" />
     <Compile Include="Assets\scripts\BugCollision.cs" />
     <Compile Include="Assets\scripts\Cliente.cs" />
@@ -101,6 +100,7 @@
     <Compile Include="Assets\scripts\camera.cs" />
     <Compile Include="Assets\scripts\cogumelo.cs" />
     <Compile Include="Assets\scripts\controleVersao.cs" />
+    <Compile Include="Assets\scripts\espinho.cs" />
     <Compile Include="Assets\scripts\gerenciaConteudoPainel.cs" />
     <Compile Include="Assets\scripts\lava.cs" />
     <Compile Include="Assets\scripts\leBugsCriticos.cs" />

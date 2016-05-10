@@ -16,6 +16,8 @@ public class GerenciadorJogo : MonoBehaviour {
     public bool GameWait; //Enquanto o jogador não clicar em voltar ao jogo, no menu de Gerenciamento de Time.
     public bool GameStart; //Quando o jogador começar a jogar.
 
+    public bool objetivoConcluido; //Quando o jogador conseguir realizar todos os objetivos, essa variável é setada como true.
+
     public GameObject menuRecursos;
     private GameObject recursos;
     private GameObject Timer;
@@ -24,6 +26,7 @@ public class GerenciadorJogo : MonoBehaviour {
 	public Vector3 posicaoSalva;
     public Vector3 posicaoInicialPlayer;
     public int countDiasTrabalhados;
+
 
     public static GerenciadorJogo instance; //singleton
 
@@ -51,9 +54,9 @@ public class GerenciadorJogo : MonoBehaviour {
         GameOver = false;
       GameWait = true; 
       GameStart = false;
-      
-      
-      recursos = GameObject.Find("GerenciarTime");
+        objetivoConcluido = false;
+
+        recursos = GameObject.Find("GerenciarTime");
       Timer = GameObject.Find("Canvas/Timer/Panel/Text");
     }
 
