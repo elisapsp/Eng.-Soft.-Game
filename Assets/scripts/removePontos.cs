@@ -6,14 +6,13 @@ public class removePontos : MonoBehaviour {
 
     private GameObject recursos;
 
-
     private GameObject Panel;
     private string nomeRecurso;
 
     // Use this for initialization
     void Start()
     {
-
+        
         recursos = GameObject.Find("GerenciarTime");
 
 

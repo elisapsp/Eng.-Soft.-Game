@@ -9,6 +9,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
     private GameObject botaoAdd;
     private GameObject botaoRm;
     private GameObject pontosDistrib;
+    private GameObject GerenciadorJogo;
 
     // Use this for initialization
     void Start () {
@@ -17,6 +18,8 @@ public class gerenciaConteudoPainel : MonoBehaviour {
         botaoAdd = gameObject.transform.FindChild("Button +").gameObject;
         botaoRm = gameObject.transform.FindChild("Button -").gameObject;
         pontosDistrib = gameObject.transform.FindChild("Panel").gameObject.transform.FindChild("Text").gameObject;
+
+        GerenciadorJogo = GameObject.Find("GerenciadorJogo");
     }
 
 	
@@ -61,7 +64,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().testador[0] == recursos.GetComponent<Recursos>().minBool)
+                if (recursos.GetComponent<Recursos>().testador[0] == recursos.GetComponent<Recursos>().minBool || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -97,7 +100,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().testador[1] == recursos.GetComponent<Recursos>().minBool)
+                if (recursos.GetComponent<Recursos>().testador[1] == recursos.GetComponent<Recursos>().minBool || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -132,7 +135,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().testador[2] == recursos.GetComponent<Recursos>().minBool)
+                if (recursos.GetComponent<Recursos>().testador[2] == recursos.GetComponent<Recursos>().minBool || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -167,7 +170,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().testador[3] == recursos.GetComponent<Recursos>().minBool)
+                if (recursos.GetComponent<Recursos>().testador[3] == recursos.GetComponent<Recursos>().minBool || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -203,7 +206,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().controleVersaoAbsoluto == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().controleVersaoAbsoluto == recursos.GetComponent<Recursos>().minInt || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -232,7 +235,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().nivelDebugAbsoluto == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().nivelDebugAbsoluto == recursos.GetComponent<Recursos>().minInt || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -261,7 +264,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUMAbsoluto == recursos.GetComponent<Recursos>().minBool)
+                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUMAbsoluto == recursos.GetComponent<Recursos>().minBool || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -285,7 +288,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 break;
             case "Organização de Tempo":
-                if (recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto == recursos.GetComponent<Recursos>().maxOrganizacaoTempo)
+                if (recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto == recursos.GetComponent<Recursos>().maxOrganizacaoTempo )
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -297,7 +300,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto == recursos.GetComponent<Recursos>().minInt || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -324,7 +327,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().aumentoSalarioAbsoluto == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().aumentoSalarioAbsoluto == recursos.GetComponent<Recursos>().minInt || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -351,7 +354,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().PraticasMotivacionaisAbsoluto == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().PraticasMotivacionaisAbsoluto == recursos.GetComponent<Recursos>().minInt || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -378,7 +381,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().CafeAbsoluto == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().CafeAbsoluto == recursos.GetComponent<Recursos>().minInt || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
