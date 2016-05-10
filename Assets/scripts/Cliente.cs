@@ -4,6 +4,7 @@ using System.Collections;
 public class Cliente : MonoBehaviour {
 
     private GameObject GerenciadorJogo;
+    private GameObject Timer;
     private Timer tempo;
     private softwareDesenvolvido softwarePlayer;
 
@@ -20,6 +21,7 @@ public class Cliente : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
+        Timer = GameObject.Find("Canvas/Timer/Panel/Text");
         indiceObjetivo = 0;
         objetivoConcluido = false;
 
@@ -55,7 +57,7 @@ public class Cliente : MonoBehaviour {
     public void ligacao()
     {
         //Script do tempo da fase.
-        tempo = GameObject.Find("Canvas/Timer/Panel/Text").GetComponent<Timer>();
+        tempo = Timer.GetComponent<Timer>();
         //Custo da ligação: 5 segundos do tempo da fase.
         tempo.timer -= 5.0f;
 

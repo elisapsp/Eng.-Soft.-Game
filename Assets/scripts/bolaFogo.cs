@@ -4,9 +4,15 @@ using System.Collections;
 public class bolaFogo : MonoBehaviour {
 
     private float posicaoY = 0f;
+    private GameObject Timer;
+    private GameObject GerenciadorJogo;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+
+
+        GerenciadorJogo = GameObject.Find("GerenciadorJogo");
+        Timer = GameObject.Find("Canvas/Timer/Panel/Text");
 
         //Depois que este objeto for criado, será destruido em 2 segundos.
         Destroy(gameObject, 2f);
@@ -38,13 +44,14 @@ public class bolaFogo : MonoBehaviour {
         if (colisor.gameObject.tag == "Player")
         {
 
-            //Coloca o player na posição 0,0,0.
-            colisor.gameObject.GetComponent<Transform>().position = new Vector3(0, 0, 0);
-            //TODO: Substituir isso para colocar o player na ultima posicao do checkpoint.
+            //reduz o tempo da fase em 5 segundos.
+            Timer.GetComponent<Timer>().timer -= 5f;
 
-            //Reseta o jogo.
-            //Com o Application.LoadLevel() é que se muda as fases do Jogo (são as Scenes).
-            //Application.LoadLevel(Application.loadedLevel);
+            //TODO: Substituir isso para colocar o player na ultima posicao do checkpoint.
+            colisor.gameObject.GetComponent<Transform>().position = GerenciadorJogo.GetComponent<GerenciadorJogo>().posicaoSalva;
+           
+
+           
 
         }
     }

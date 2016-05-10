@@ -3,11 +3,7 @@ using System.Collections;
 
 public class BugCollision : MonoBehaviour {
 
-    /*
-     
-        Falta implementar colisão. Algoritmo já está setado.
-
-     */
+    
 
     //Tipo1, 2 ou 3.
     public int TipoBug;
@@ -16,9 +12,13 @@ public class BugCollision : MonoBehaviour {
     private int direcao;
     private int lastdirecao;
 
-    
+    private GameObject Timer;
+    private GameObject GerenciadorJogo;
+
     // Use this for initialization
     void Start () {
+        GerenciadorJogo = GameObject.Find("GerenciadorJogo");
+        Timer = GameObject.Find("Canvas/Timer/Panel/Text");
 
         if (TipoBug == 3)
         {
@@ -58,6 +58,7 @@ public class BugCollision : MonoBehaviour {
        
         if (colisor.gameObject.name == "Player")
         {
+            //Se o player vier de cima, na colisão e o bug não for o do tipo 3.
             if (colisor.gameObject.GetComponent<Rigidbody2D>().velocity.y != 0 && TipoBug!= 3)
             {
                 gameObject.GetComponentInChildren<vidaObjeto>().PerdeVida(10);
@@ -66,9 +67,11 @@ public class BugCollision : MonoBehaviour {
             }
             else
             {
-                //deve voltar para o ultimo checkpoint salvo e reduzir o tempo do jogo em um valor.
+                //reduz o tempo da fase em 5 segundos.
+                Timer.GetComponent<Timer>().timer -= 5f;
 
-                colisor.gameObject.GetComponent<Transform>().position = new Vector3(0, 0, 0);
+                //deve voltar para o ultimo checkpoint salvo
+                colisor.gameObject.GetComponent<Transform>().position = GerenciadorJogo.GetComponent<GerenciadorJogo>().posicaoSalva;
             }
             
 
