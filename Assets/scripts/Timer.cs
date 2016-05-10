@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Timer : MonoBehaviour {
 
+
     public float timer;
 	// Use this for initialization
 	void Start () {

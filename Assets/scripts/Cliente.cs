@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Cliente : MonoBehaviour {
 
-
+    private GameObject GerenciadorJogo;
     private Timer tempo;
     private softwareDesenvolvido softwarePlayer;
 
@@ -19,7 +19,7 @@ public class Cliente : MonoBehaviour {
    
 	// Use this for initialization
 	void Start () {
-
+        GerenciadorJogo = GameObject.Find("GerenciadorJogo");
         indiceObjetivo = 0;
         objetivoConcluido = false;
 
@@ -131,6 +131,7 @@ public class Cliente : MonoBehaviour {
                 {
                     Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
                 }
+                
             }
             else
             {
@@ -148,8 +149,10 @@ public class Cliente : MonoBehaviour {
 
     }
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         //Se quem colidir for um player.
         if (collision.tag == "Player")
         {
@@ -168,8 +171,9 @@ public class Cliente : MonoBehaviour {
                 indiceObjetivo = 3;
             }
 
-        //pra cada tipo de software coletado.
-        for (int i = 0; i < 4; i++)
+          
+            //pra cada tipo de software coletado.
+            for (int i = 0; i < 4; i++)
         {
 
             //Se o pedaço de software foi coletado.
@@ -233,9 +237,16 @@ public class Cliente : MonoBehaviour {
             //O jogador zerou o jogo.
             if (indiceObjetivo == 4)
             {
-                    objetivoConcluido = true;
-                    Debug.Log("Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!");
-            }
+                    if (GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos == 0)
+                    {
+                        objetivoConcluido = true;
+                        Debug.Log("Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!");
+                    }
+                    else
+                    {
+                        Debug.Log("Tudo parece correto, porém ao utilizar o software, percebo alguns bugs criticos nele. Elimine todos os bugs críticos antes de me entregar o produto final.");
+                    }
+                }
             else
             {
                 //Muda o objetivo.
@@ -246,7 +257,8 @@ public class Cliente : MonoBehaviour {
                 {
                     Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
                 }
-            }
+                    Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
+                }
 
             
         }
@@ -266,12 +278,14 @@ public class Cliente : MonoBehaviour {
             {
                 Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
             }
-        
 
+        Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
         if (objetivoConcluido == true)
         {
             Debug.Log("Objetivo concluído com sucesso!");
         }
+
+        
 
     }
 

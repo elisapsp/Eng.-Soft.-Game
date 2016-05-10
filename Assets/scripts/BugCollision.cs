@@ -20,6 +20,10 @@ public class BugCollision : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        if (TipoBug == 3)
+        {
+            GameObject.Find("GerenciadorJogo").gameObject.GetComponent<GerenciadorJogo>().numBugsCriticos++;
+        }
        
 
         direcao = gameObject.GetComponent<movimentacaoObjeto>().direcao;
