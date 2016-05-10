@@ -191,7 +191,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 break;
             case "Controle de Versão":
-                if (recursos.GetComponent<Recursos>().controleVersao == recursos.GetComponent<Recursos>().maxControleVersao)
+                if (recursos.GetComponent<Recursos>().controleVersaoAbsoluto == recursos.GetComponent<Recursos>().maxControleVersao)
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -203,7 +203,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().controleVersao == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().controleVersaoAbsoluto == recursos.GetComponent<Recursos>().minInt)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -215,12 +215,12 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                     botaoRm.GetComponent<Image>().color = Color.white;
 
                 }
-                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().controleVersao.ToString();
+                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().controleVersaoAbsoluto.ToString();
 
 
                 break;
             case "Nivel do Depurador":
-                if (recursos.GetComponent<Recursos>().nivelDebug == recursos.GetComponent<Recursos>().maxNivelDebug)
+                if (recursos.GetComponent<Recursos>().nivelDebugAbsoluto == recursos.GetComponent<Recursos>().maxNivelDebug)
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -232,7 +232,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().nivelDebug == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().nivelDebugAbsoluto == recursos.GetComponent<Recursos>().minInt)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -244,12 +244,12 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                     botaoRm.GetComponent<Image>().color = Color.white;
 
                 }
-                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().nivelDebug.ToString();
+                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().nivelDebugAbsoluto.ToString();
 
 
                 break;
             case "Conhecimento SCRUM":
-                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUM == recursos.GetComponent<Recursos>().maxConhecimentoSCRUM)
+                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUMAbsoluto == recursos.GetComponent<Recursos>().maxConhecimentoSCRUM)
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -261,7 +261,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUM == recursos.GetComponent<Recursos>().minBool)
+                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUMAbsoluto == recursos.GetComponent<Recursos>().minBool)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -273,7 +273,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                     botaoRm.GetComponent<Image>().color = Color.white;
 
                 }
-                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUM)
+                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUMAbsoluto)
                 {
                     pontosDistrib.GetComponent<Text>().text = "1";
                 }
@@ -285,7 +285,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 break;
             case "Organização de Tempo":
-                if (recursos.GetComponent<Recursos>().OrganizacaoTempo == recursos.GetComponent<Recursos>().maxOrganizacaoTempo)
+                if (recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto == recursos.GetComponent<Recursos>().maxOrganizacaoTempo)
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -297,7 +297,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().OrganizacaoTempo == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto == recursos.GetComponent<Recursos>().minInt)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -309,10 +309,10 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                     botaoRm.GetComponent<Image>().color = Color.white;
 
                 }
-                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().OrganizacaoTempo.ToString();
+                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto.ToString();
                 break;
             case "Aumento de salário":
-                if (recursos.GetComponent<Recursos>().aumentoSalario == recursos.GetComponent<Recursos>().maxAumentoSalario)
+                if (recursos.GetComponent<Recursos>().aumentoSalarioAbsoluto == recursos.GetComponent<Recursos>().maxAumentoSalario)
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -324,7 +324,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().aumentoSalario == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().aumentoSalarioAbsoluto == recursos.GetComponent<Recursos>().minInt)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -336,10 +336,10 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                     botaoRm.GetComponent<Image>().color = Color.white;
 
                 }
-                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().aumentoSalario.ToString();
+                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().aumentoSalarioAbsoluto.ToString();
                 break;
             case "Práticas Motivacionais":
-                if (recursos.GetComponent<Recursos>().PraticasMotivacionais == recursos.GetComponent<Recursos>().maxPraticasMotivacionais)
+                if (recursos.GetComponent<Recursos>().PraticasMotivacionaisAbsoluto == recursos.GetComponent<Recursos>().maxPraticasMotivacionais)
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -351,7 +351,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().PraticasMotivacionais == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().PraticasMotivacionaisAbsoluto == recursos.GetComponent<Recursos>().minInt)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -363,10 +363,10 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                     botaoRm.GetComponent<Image>().color = Color.white;
 
                 }
-                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().PraticasMotivacionais.ToString();
+                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().PraticasMotivacionaisAbsoluto.ToString();
                 break;
             case "Café":
-                if (recursos.GetComponent<Recursos>().Cafe == recursos.GetComponent<Recursos>().maxCafe)
+                if (recursos.GetComponent<Recursos>().CafeAbsoluto == recursos.GetComponent<Recursos>().maxCafe)
                 {
                     botaoAdd.GetComponent<Button>().interactable = false;
                     botaoAdd.GetComponent<Image>().color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
@@ -378,7 +378,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().Cafe == recursos.GetComponent<Recursos>().minInt)
+                if (recursos.GetComponent<Recursos>().CafeAbsoluto == recursos.GetComponent<Recursos>().minInt)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;
@@ -390,7 +390,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
                     botaoRm.GetComponent<Image>().color = Color.white;
 
                 }
-                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().Cafe.ToString();
+                pontosDistrib.GetComponent<Text>().text = recursos.GetComponent<Recursos>().CafeAbsoluto.ToString();
                 break;
             case "Ligar para Cliente":
                 

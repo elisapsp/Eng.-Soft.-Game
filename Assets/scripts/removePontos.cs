@@ -60,43 +60,48 @@ public class removePontos : MonoBehaviour {
 
                     break;
                 case "Controle de Versão":
-                        recursos.GetComponent<Recursos>().controleVersao--;
+                recursos.GetComponent<Recursos>().controleVersaoAbsoluto--;
+                recursos.GetComponent<Recursos>().controleVersao--;
                         recursos.GetComponent<Recursos>().PontosTotais++;
                     
                     break;
                 case "Nivel do Depurador":
-                        recursos.GetComponent<Recursos>().nivelDebug--;
+                recursos.GetComponent<Recursos>().nivelDebugAbsoluto--;
+                recursos.GetComponent<Recursos>().nivelDebug--;
                         recursos.GetComponent<Recursos>().PontosTotais++;
                     
                     break;
                 case "Conhecimento SCRUM":
-                   
-                        recursos.GetComponent<Recursos>().ConhecimentoSCRUM = false;
+
+                recursos.GetComponent<Recursos>().ConhecimentoSCRUMAbsoluto = false;
+                recursos.GetComponent<Recursos>().ConhecimentoSCRUM = false;
                         recursos.GetComponent<Recursos>().PontosTotais++;
                    
 
                     break;
                 case "Organização de Tempo":
-                        recursos.GetComponent<Recursos>().OrganizacaoTempo--;
+                recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto--;
+                recursos.GetComponent<Recursos>().OrganizacaoTempo--;
                         recursos.GetComponent<Recursos>().PontosTotais++;
 
                     break;
                 case "Aumento de salário":
-                   
-                        recursos.GetComponent<Recursos>().aumentoSalario--;
+                recursos.GetComponent<Recursos>().aumentoSalarioAbsoluto--;
+                recursos.GetComponent<Recursos>().aumentoSalario--;
                         recursos.GetComponent<Recursos>().PontosTotais++;
                    
 
                     break;
                 case "Práticas Motivacionais":
-                        recursos.GetComponent<Recursos>().PraticasMotivacionais--;
+                recursos.GetComponent<Recursos>().PraticasMotivacionaisAbsoluto--;
+                recursos.GetComponent<Recursos>().PraticasMotivacionais--;
                         recursos.GetComponent<Recursos>().PontosTotais++;
                     
                     break;
                 case "Café":
-                        recursos.GetComponent<Recursos>().Cafe--;
+                recursos.GetComponent<Recursos>().CafeAbsoluto--;
+                recursos.GetComponent<Recursos>().Cafe--;
                         recursos.GetComponent<Recursos>().PontosTotais++;
-        
                     break;
                 default:
                     Debug.Log("Nome do recurso no painel está diferente do nome no switch do script.");
