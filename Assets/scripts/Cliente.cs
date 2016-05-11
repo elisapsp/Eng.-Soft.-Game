@@ -182,8 +182,8 @@ public class Cliente : MonoBehaviour {
             FalasCliente[indexFala] = FalasCliente[indexFala] + "Nada está de acordo com o que eu pedi!";
         }
 
-        Timer.GetComponent<Timer>().freeze = true;
-        DialogBoxText.transform.parent.gameObject.SetActive(true);
+        
+        //DialogBoxText.transform.parent.gameObject.SetActive(true);
 
         DialogBoxText.GetComponent<ImportText>().text = FalasCliente;
 
@@ -332,6 +332,8 @@ public class Cliente : MonoBehaviour {
         Debug.Log("Fala do cliente: " + FalasCliente[2]);
         */
         Timer.GetComponent<Timer>().freeze = true;
+
+        GerenciadorJogo.GetComponent<OnePanelAtOnce>().cleanAllPanels();
 
         DialogBoxText.transform.parent.gameObject.SetActive(true);
         

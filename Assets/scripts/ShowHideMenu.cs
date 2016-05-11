@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ShowHideMenu : MonoBehaviour {
 
+    private GameObject GerenciadorJogo;
 
     public GameObject targetMenu;
 
@@ -10,6 +11,7 @@ public class ShowHideMenu : MonoBehaviour {
     {
         if (targetMenu.activeSelf == false)
         {
+            GerenciadorJogo.GetComponent<OnePanelAtOnce>().cleanAllPanels();
             targetMenu.SetActive(true);
         }
         else
@@ -21,7 +23,7 @@ public class ShowHideMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        GerenciadorJogo = GameObject.Find("GerenciadorJogo");
 	}
 	
 	// Update is called once per frame

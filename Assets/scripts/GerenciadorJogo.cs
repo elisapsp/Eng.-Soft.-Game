@@ -30,6 +30,7 @@ public class GerenciadorJogo : MonoBehaviour {
 
     private GameObject PlayerController;
     private GameObject[] BotoesMenuJogador;
+    private GameObject[] PopUpMenus;
 
     public static GerenciadorJogo instance; //singleton
 
@@ -63,7 +64,8 @@ public class GerenciadorJogo : MonoBehaviour {
       Timer = GameObject.Find("Canvas/Timer/Panel/Text");
 
          BotoesMenuJogador = GameObject.FindGameObjectsWithTag("BotaoMenuJogador");
-    }
+       
+}
 
     void togglefreezePlayer()
     {
@@ -96,13 +98,36 @@ public class GerenciadorJogo : MonoBehaviour {
         }
     }
 
+    void FreezeTime()
+    {
+        PopUpMenus = GameObject.FindGameObjectsWithTag("PopUpMenu");
+        if (PopUpMenus.Length > 0)
+        {
+            Timer.GetComponent<Timer>().freeze = true;
+        }
+        else
+        {
+            Timer.GetComponent<Timer>().freeze = false;
+        }
+    }
+
 	void Update() {
-		if (Input.GetKeyDown("c")) {
+
+       
+        
+
+        if (Input.GetKeyDown("c")) {
 			player.position = posicaoSalva;
 		}
+        //Se algum painel estiver ativado, o tempo congela. Isso facilitará o jogo.
+        FreezeTime();
 
+        //Se o tempo tiver parado, o jogador congela.
         togglefreezePlayer();
+
+        //Se tiver na fase de GameWait, os botões (exceto o sair) não funcionarão.
         toggleBotoesMenuJogador();
+
         //Se tiver dado GameOver (ou seja, o Tempo do jogo ter chegado a 0).
         if (GameOver == true)
         {
