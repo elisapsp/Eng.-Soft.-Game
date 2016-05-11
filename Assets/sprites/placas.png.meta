@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: a760af70effc09f43a0b5414c1badd86
+timeCreated: 1462998854
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: placas_0
+    21300002: placas_1
+    21300004: placas_2
+    21300006: placas_3
+    21300008: placas_4
+    21300010: placas_5
+    21300012: placas_6
+    21300014: placas_7
+    21300016: placas_8
+    21300018: placas_9
+    21300020: placas_10
+    21300022: placas_11
+    21300024: placas_12
+    21300026: placas_13
+    21300028: placas_14
+    21300030: placas_15
+    21300032: placas_16
+    21300034: placas_17
+    21300036: placas_18
+    21300038: placas_19
+    21300040: placas_20
+    21300042: placas_21
+    21300044: placas_22
+    21300046: placas_23
+    21300048: placas_24
+    21300050: placas_25
+    21300052: placas_26
+    21300054: placas_27
+    21300056: placas_28
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: placas_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 662
+        width: 92
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: -38.055542}
+        - {x: -41, y: -43.055542}
+        - {x: -36, y: -43.055542}
+        - {x: -35, y: -42.055542}
+        - {x: -35, y: -40.055542}
+        - {x: -37, y: -38.055542}
+      - - {x: -38, y: 43.944458}
+        - {x: -41, y: 33.944458}
+        - {x: -41, y: -43.055542}
+        - {x: 27, y: -43.055542}
+        - {x: 41, y: -38.055542}
+        - {x: 41, y: 37.944458}
+        - {x: 27, y: 43.944458}
+      - - {x: 22, y: -38.055542}
+        - {x: 21, y: -40.055542}
+        - {x: 21, y: -43.055542}
+        - {x: 37, y: -43.055542}
+        - {x: 37, y: -40.055542}
+        - {x: 35, y: -38.055542}
+    - name: placas_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 584
+        width: 92
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 81.611145}
+        - {x: -41, y: -8.388855}
+        - {x: -22, y: -81.388855}
+        - {x: 25, y: -81.388855}
+        - {x: 41, y: 0.611145}
+        - {x: 41, y: 79.611145}
+        - {x: 37, y: 81.611145}
+    - name: placas_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 584
+        width: 93
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.166672, y: 81.611145}
+        - {x: -41.16667, y: 75.611145}
+        - {x: -41.16667, y: -22.388855}
+        - {x: -15.166672, y: -81.388855}
+        - {x: 27.833328, y: -81.388855}
+        - {x: 41.83333, y: -11.388855}
+        - {x: 41.83333, y: 78.611145}
+        - {x: 36.83333, y: 81.611145}
+    - name: placas_3
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 584
+        width: 94
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.72223, y: 82.111145}
+        - {x: -41.72223, y: 69.111145}
+        - {x: -41.72223, y: -60.888855}
+        - {x: -39.72223, y: -62.888855}
+        - {x: -13.722229, y: -79.888855}
+        - {x: -10.722229, y: -81.888855}
+        - {x: 42.27777, y: -81.888855}
+        - {x: 43.27777, y: -76.888855}
+        - {x: 43.27777, y: 82.111145}
+    - name: placas_4
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 671
+        width: 92
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 43.944458}
+        - {x: -41, y: 33.944458}
+        - {x: -41, y: -43.055542}
+        - {x: 27, y: -43.055542}
+        - {x: 41, y: -38.055542}
+        - {x: 41, y: 37.944458}
+        - {x: 27, y: 43.944458}
+    - name: placas_5
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 575
+        width: 93
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.166656, y: 44.611115}
+        - {x: -41.166656, y: 26.611115}
+        - {x: -41.166656, y: -30.388885}
+        - {x: -24.166656, y: -44.388885}
+        - {x: 22.833344, y: -44.388885}
+        - {x: 41.833344, y: -38.388885}
+        - {x: 41.833344, y: 33.611115}
+        - {x: 12.8333435, y: 44.611115}
+    - name: placas_6
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 584
+        width: 184
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 58.27777, y: 81.611145}
+        - {x: -81.72223, y: 81.611145}
+        - {x: -81.72223, y: -81.388855}
+        - {x: 51.27777, y: -81.388855}
+        - {x: 83.27777, y: 22.611145}
+        - {x: 83.27777, y: 57.611145}
+        - {x: 74.27777, y: 72.611145}
+    - name: placas_7
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 584
+        width: 101
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.72223, y: 81.611145}
+        - {x: -44.72223, y: -53.388855}
+        - {x: -39.72223, y: -81.388855}
+        - {x: 34.27777, y: -81.388855}
+        - {x: 40.27777, y: -43.388855}
+        - {x: 40.27777, y: 81.611145}
+      - - {x: 40.27777, y: -77.388855}
+        - {x: 41.27777, y: -80.388855}
+        - {x: 46.27777, y: -80.388855}
+        - {x: 46.27777, y: -75.388855}
+        - {x: 42.27777, y: -75.388855}
+      - - {x: 36.27777, y: 0.611145}
+        - {x: 34.27777, y: -1.388855}
+        - {x: 34.27777, y: -27.388855}
+        - {x: 36.27777, y: -29.388855}
+        - {x: 38.27777, y: -29.388855}
+        - {x: 40.27777, y: -27.388855}
+        - {x: 40.27777, y: -1.388855}
+        - {x: 38.27777, y: 0.611145}
+      - - {x: 36.27777, y: 34.611145}
+        - {x: 34.27777, y: 32.611145}
+        - {x: 34.27777, y: 6.611145}
+        - {x: 36.27777, y: 4.611145}
+        - {x: 38.27777, y: 4.611145}
+        - {x: 40.27777, y: 6.611145}
+        - {x: 40.27777, y: 32.611145}
+        - {x: 38.27777, y: 34.611145}
+    - name: placas_8
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 624
+        width: 98
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43.22223, y: 43.666687}
+        - {x: -43.22223, y: -42.333313}
+        - {x: 44.77777, y: -42.333313}
+        - {x: 44.77777, y: 43.666687}
+    - name: placas_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 463
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30.388893, y: 40.055573}
+        - {x: 15.388893, y: 44.055573}
+        - {x: -28.611107, y: 44.055573}
+        - {x: -42.611107, y: 34.055573}
+        - {x: -42.611107, y: -6.9444275}
+        - {x: -41.611107, y: -15.9444275}
+        - {x: -17.611107, y: -42.944427}
+        - {x: 12.388893, y: -42.944427}
+        - {x: 15.388893, y: -38.944427}
+        - {x: 44.388893, y: -27.944427}
+        - {x: 44.388893, y: 32.055573}
+    - name: placas_10
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 479
+        width: 195
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -87, y: 45.27777}
+        - {x: -87, y: -43.72223}
+        - {x: 87, y: -43.72223}
+        - {x: 87, y: 45.27777}
+      - - {x: 35, y: 45.27777}
+        - {x: 33, y: 43.27777}
+        - {x: 34, y: 40.27777}
+        - {x: 48, y: 40.27777}
+        - {x: 50, y: 41.27777}
+        - {x: 50, y: 45.27777}
+    - name: placas_11
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 479
+        width: 90
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: 45.27777}
+        - {x: -40, y: 44.27777}
+        - {x: -40, y: -43.72223}
+        - {x: 18, y: -43.72223}
+        - {x: 40, y: -32.72223}
+        - {x: 40, y: 25.277771}
+        - {x: 0, y: 45.27777}
+    - name: placas_12
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 479
+        width: 90
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.833313, y: 45.27777}
+        - {x: -29.166687, y: 32.27777}
+        - {x: -40.166687, y: 22.277771}
+        - {x: -40.166687, y: -15.722229}
+        - {x: -13.166687, y: -43.72223}
+        - {x: 40.833313, y: -43.72223}
+        - {x: 40.833313, y: 45.27777}
+    - name: placas_13
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 404
+        width: 192
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 56.833313, y: 34.111115}
+        - {x: 56.833313, y: 33.111115}
+        - {x: -85.16669, y: 29.111115}
+        - {x: -85.16669, y: -33.888885}
+        - {x: 85.83331, y: -33.888885}
+        - {x: 85.83331, y: 34.111115}
+      - - {x: -44.166687, y: 34.111115}
+        - {x: -43.166687, y: 31.111115}
+        - {x: -29.166687, y: 31.111115}
+        - {x: -27.166687, y: 33.111115}
+        - {x: -27.166687, y: 34.111115}
+    - name: placas_14
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 431
+        width: 98
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 61.611115}
+        - {x: -44, y: -61.388885}
+        - {x: 40, y: -61.388885}
+        - {x: 44, y: -23.388885}
+        - {x: 44, y: 55.611115}
+        - {x: 40, y: 61.611115}
+    - name: placas_15
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 409
+        width: 94
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.72223, y: 28.055573}
+        - {x: -41.72223, y: -26.944427}
+        - {x: 43.27777, y: -26.944427}
+        - {x: 43.27777, y: 28.055573}
+    - name: placas_16
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 404
+        width: 288
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 30.611115}
+        - {x: -128, y: -27.388885}
+        - {x: -62, y: -30.388885}
+        - {x: 128, y: -30.388885}
+        - {x: 128, y: 30.611115}
+    - name: placas_17
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 288
+        width: 92
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 44}
+        - {x: -41, y: 40}
+        - {x: -41, y: -31}
+        - {x: -13, y: -44}
+        - {x: 38, y: -44}
+        - {x: 41, y: -34}
+        - {x: 41, y: 44}
+    - name: placas_18
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 284
+        width: 92
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.72223, y: 44.444443}
+        - {x: -40.72223, y: -27.555557}
+        - {x: -33.72223, y: -43.555557}
+        - {x: 17.277771, y: -43.555557}
+        - {x: 42.27777, y: -3.5555573}
+        - {x: 42.27777, y: 30.444443}
+        - {x: 24.277771, y: 44.444443}
+    - name: placas_19
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 125
+        width: 93
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.833344, y: -58.388885}
+        - {x: 37.833344, y: -112.388885}
+        - {x: 41.833344, y: -112.388885}
+        - {x: 41.833344, y: -58.388885}
+        - {x: 40.833344, y: -57.388885}
+      - - {x: 37.833344, y: 26.611115}
+        - {x: 37.833344, y: -27.388885}
+        - {x: 39.833344, y: -29.388885}
+        - {x: 41.833344, y: -28.388885}
+        - {x: 41.833344, y: 26.611115}
+        - {x: 40.833344, y: 27.611115}
+      - - {x: -41.166656, y: 112.611115}
+        - {x: -41.166656, y: 55.611115}
+        - {x: 41.833344, y: 55.611115}
+        - {x: 41.833344, y: 112.611115}
+    - name: placas_20
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 191
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43.166687, y: 44.777786}
+        - {x: -43.166687, y: -43.222214}
+        - {x: 42.833313, y: -43.222214}
+        - {x: 43.833313, y: -41.222214}
+        - {x: 43.833313, y: 44.777786}
+    - name: placas_21
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 73
+        width: 193
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -85.72223, y: 45.388893}
+        - {x: -85.72223, y: -43.611107}
+        - {x: 87.27777, y: -43.611107}
+        - {x: 87.27777, y: 45.388893}
+    - name: placas_22
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 273
+        width: 93
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.333313, y: 43.16667}
+        - {x: -41.333313, y: 33.16667}
+        - {x: -41.333313, y: -39.83333}
+        - {x: -34.333313, y: -41.83333}
+        - {x: 32.666687, y: -41.83333}
+        - {x: 42.666687, y: -29.833328}
+        - {x: 42.666687, y: 31.166672}
+        - {x: 27.666687, y: 43.16667}
+    - name: placas_23
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 271
+        width: 92
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 44.388885}
+        - {x: -41, y: 29.388885}
+        - {x: -41, y: -27.611115}
+        - {x: -24, y: -42.611115}
+        - {x: 27, y: -42.611115}
+        - {x: 41, y: -37.611115}
+        - {x: 41, y: 37.388885}
+        - {x: 16, y: 44.388885}
+    - name: placas_24
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 129
+        width: 98
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17.888916, y: 44.166664}
+        - {x: 16.888916, y: 43.166664}
+        - {x: 6.888916, y: 44.166664}
+        - {x: -41.111084, y: 44.166664}
+        - {x: -43.111084, y: 40.166664}
+        - {x: -43.111084, y: -40.833336}
+        - {x: -41.111084, y: -42.833336}
+        - {x: 44.888916, y: -42.833336}
+        - {x: 44.888916, y: 44.166664}
+    - name: placas_25
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 273
+        width: 93
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41.833313, y: 32.16667}
+        - {x: 32.833313, y: 43.16667}
+        - {x: -34.166687, y: 43.16667}
+        - {x: -41.166687, y: 40.16667}
+        - {x: -41.166687, y: -28.833328}
+        - {x: -13.166687, y: -41.83333}
+        - {x: 12.833313, y: -41.83333}
+        - {x: 13.833313, y: -40.83333}
+        - {x: 40.833313, y: -28.833328}
+        - {x: 41.833313, y: -27.833328}
+    - name: placas_26
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 19
+        width: 93
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.16667, y: 44.38889}
+        - {x: -41.16667, y: 42.38889}
+        - {x: -41.16667, y: -34.61111}
+        - {x: -17.166672, y: -42.61111}
+        - {x: 21.833328, y: -42.61111}
+        - {x: 41.83333, y: -28.61111}
+        - {x: 41.83333, y: 33.38889}
+        - {x: 32.83333, y: 44.38889}
+    - name: placas_27
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 19
+        width: 91
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 44.88889}
+        - {x: -40.5, y: 30.88889}
+        - {x: -40.5, y: -7.1111107}
+        - {x: -13.5, y: -43.11111}
+        - {x: 16.5, y: -43.11111}
+        - {x: 40.5, y: -11.111111}
+        - {x: 40.5, y: 28.88889}
+        - {x: 14.5, y: 44.88889}
+    - name: placas_28
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 48
+        width: 94
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.72223, y: 27.666668}
+        - {x: -41.72223, y: -25.333332}
+        - {x: -40.72223, y: -26.333332}
+        - {x: 43.27777, y: -26.333332}
+        - {x: 43.27777, y: 27.666668}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
