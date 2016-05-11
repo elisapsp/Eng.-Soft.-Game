@@ -331,7 +331,7 @@ public class Cliente : MonoBehaviour {
         Debug.Log("Fala do cliente: " + FalasCliente[1]);
         Debug.Log("Fala do cliente: " + FalasCliente[2]);
         */
-        Timer.GetComponent<Timer>().freeze = true;
+        //Timer.GetComponent<Timer>().freeze = true;
 
         GerenciadorJogo.GetComponent<OnePanelAtOnce>().cleanAllPanels();
 
