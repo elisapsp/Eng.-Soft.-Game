@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Cliente : MonoBehaviour {
+
+    public GameObject DialogBoxText;
 
     private GameObject GerenciadorJogo;
     private GameObject Timer;
     private Timer tempo;
     private softwareDesenvolvido softwarePlayer;
+
+    public string[] FalasCliente = new string[3];
 
     //Contém os objetivos de cada pedaço de software que deve ser coletado.
     public string[][] objetivo = new string[4][];
@@ -14,9 +19,18 @@ public class Cliente : MonoBehaviour {
     //contém o numero do objetivo corrente (0,1,2 ou 3).
     public int indiceObjetivo;
 
-   
+    void limpaArrayFalas()
+    {
+        for (int i = 0; i < FalasCliente.Length; i++)
+        {
+            FalasCliente[i] = "";
+        }
+    }
 	// Use this for initialization
 	void Start () {
+        //Limpa o array das falas.
+        limpaArrayFalas();
+        
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
         Timer = GameObject.Find("Canvas/Timer/Panel/Text");
         indiceObjetivo = 0;
@@ -53,6 +67,7 @@ public class Cliente : MonoBehaviour {
 
     public void ligacao()
     {
+       
         //Script do tempo da fase.
         tempo = Timer.GetComponent<Timer>();
         //Custo da ligação: 5 segundos do tempo da fase.
@@ -83,6 +98,7 @@ public class Cliente : MonoBehaviour {
                 //Se a cor estiver correta.
                 if (softwarePlayer.cores[i] == objetivo[indiceObjetivo][i])
                 {
+                    
                     numCoresCorretas++;
                     Debug.Log("A cor do pedaço de software do tipo " + (i + 1).ToString() + " está correta.");
 
@@ -146,6 +162,8 @@ public class Cliente : MonoBehaviour {
 
         }
 
+       
+
     }
 
 
@@ -155,7 +173,14 @@ public class Cliente : MonoBehaviour {
         //Se quem colidir for um player.
         if (collision.tag == "Player")
         {
-            
+
+        //Limpa as falas antigas.
+        limpaArrayFalas();
+
+        //Guarda o index da fala no array, para saber onde colocar.
+        int indexFala = 0;
+        
+
         //Fará a contagem das cores entregues corretamente.
         int numCoresCorretas = 0;
 
@@ -173,7 +198,7 @@ public class Cliente : MonoBehaviour {
           
             //pra cada tipo de software coletado.
             for (int i = 0; i < 4; i++)
-        {
+            {
 
             //Se o pedaço de software foi coletado.
             if (softwarePlayer.coletado[i] == true)
@@ -183,10 +208,11 @@ public class Cliente : MonoBehaviour {
                 if (softwarePlayer.cores[i] == objetivo[indiceObjetivo][i])
                 {
                     numCoresCorretas++;
-                    Debug.Log("A cor do pedaço de software do tipo " + (i + 1).ToString() + " está correta.");
+                    //Debug.Log("A cor do pedaço de software do tipo " + (i + 1).ToString() + " está correta.\n");
 
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "A cor do pedaço de software do tipo " + (i + 1).ToString() + " está correta.\n";
 
-                    if (softwarePlayer.funciona[i] == true)
+                        if (softwarePlayer.funciona[i] == true)
                     {
                         numFuncionando++;
                     }
@@ -195,8 +221,9 @@ public class Cliente : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("A cor do pedaço de software do tipo " + (i + 1).ToString() + " não está correta.");
-                    Debug.Log("A cor deste tipo deve ser: " + objetivo[indiceObjetivo][i]);
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "A cor do pedaço de software do tipo " + (i + 1).ToString() + " não está correta." + "A cor deste tipo deve ser: " + objetivo[indiceObjetivo][i] + ".\n";
+                    //Debug.Log("A cor do pedaço de software do tipo " + (i + 1).ToString() + " não está correta.");
+                    //Debug.Log("A cor deste tipo deve ser: " + objetivo[indiceObjetivo][i]);
                 }
 
                 
@@ -206,28 +233,36 @@ public class Cliente : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Falta o pedaço de software do tipo " + (i + 1).ToString());
+                FalasCliente[indexFala] = FalasCliente[indexFala] + "Falta o pedaço de software do tipo " + (i + 1).ToString() + ".\n";
+                //Debug.Log("Falta o pedaço de software do tipo " + (i + 1).ToString());
             }
 
 
 
         }
+
+        indexFala++;
 
         if (numCoresCorretas > 0)
         {
             if (numCoresCorretas == numFuncionando)
             {
-                Debug.Log("Acabei de usar as partes com cores corretas que você me entregou. Tudo está funcionando!");
+               FalasCliente[indexFala] = FalasCliente[indexFala] + "Acabei de usar as partes com cores corretas que você me entregou. Tudo está funcionando!\n";
+               //Debug.Log("Acabei de usar as partes com cores corretas que você me entregou. Tudo está funcionando!");
             }
             else
             {
-                Debug.Log("Acabei de usar as partes com cores corretas que você me entregou. Não está funcionando!");
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Acabei de usar as partes com cores corretas que você me entregou. Não está funcionando!";
+                    //Debug.Log("Acabei de usar as partes com cores corretas que você me entregou. Não está funcionando!");
             }
         }
         else
         {
-            Debug.Log("Tudo que me entregou não está de acordo com o que eu pedi!");
+            FalasCliente[indexFala] = FalasCliente[indexFala] + "Tudo que me entregou não está de acordo com o que eu pedi!";
+            //Debug.Log("Tudo que me entregou não está de acordo com o que eu pedi!");
         }
+
+        indexFala++;
 
         if (numCoresCorretas == 4 && numFuncionando == 4)
         {
@@ -239,30 +274,43 @@ public class Cliente : MonoBehaviour {
                     if (GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos == 0)
                     {
                         GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido = true;
-                        
-                        Debug.Log("Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!");
+                        FalasCliente[indexFala] = FalasCliente[indexFala] + "Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!\n";
+                        //Debug.Log("Muito obrigado! Esse software é exatamente o que eu imaginei! Muito obrigado pelo serviço!");
                     }
                     else
                     {
-                        Debug.Log("Tudo parece correto, porém ao utilizar o software, percebo alguns bugs criticos nele. Elimine todos os bugs críticos antes de me entregar o produto final.");
+                        FalasCliente[indexFala] = FalasCliente[indexFala] + "Tudo parece correto, porém ao utilizar o software, percebo alguns bugs criticos nele. Elimine todos os bugs críticos antes de me entregar o produto final.";
+                        //Debug.Log("Tudo parece correto, porém ao utilizar o software, percebo alguns bugs criticos nele. Elimine todos os bugs críticos antes de me entregar o produto final.");
                     }
                 }
             else
             {
-                //Muda o objetivo.
-                Debug.Log("Porém, pensando melhor, acho que o software ficará melhor de outro jeito. Aqui vai a minha nova preferência das cores de cada tipo que deve me entregar.");
+
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Porém, pensando melhor, acho que o software ficará melhor de outro jeito. Aqui vai a minha nova preferência das cores de cada tipo que deve me entregar.\n";
+                    //Muda o objetivo.
+                    //Debug.Log("Porém, pensando melhor, acho que o software ficará melhor de outro jeito. Aqui vai a minha nova preferência das cores de cada tipo que deve me entregar.");
 
 
                 for (int i = 0; i < 4; i++)
                 {
-                    Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i] + "\n";
+                    //Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
                 }
-                    Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.";
+                    //Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
                 }
 
             
         }
         }
+        /*
+        Debug.Log("Fala do cliente: " + FalasCliente[0]);
+        Debug.Log("Fala do cliente: " + FalasCliente[1]);
+        Debug.Log("Fala do cliente: " + FalasCliente[2]);
+        */
+        DialogBoxText.transform.parent.gameObject.SetActive(true);
+        
+        DialogBoxText.GetComponent<ImportText>().text = FalasCliente;
     }
 
     public void descreveObjetivo()
@@ -285,8 +333,8 @@ public class Cliente : MonoBehaviour {
             Debug.Log("Objetivo concluído com sucesso!");
         }
 
-        
 
+      
     }
 
 
