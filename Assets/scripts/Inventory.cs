@@ -110,9 +110,11 @@ public class Inventory : MonoBehaviour {
 }
 
 
-    public void testaPedacosSoftware(bool[] testadorDoTipo)
+    public string testaPedacosSoftware(bool[] testadorDoTipo)
     {
-        
+
+        string text = "";
+
         int indexTipo;
         int Tipo;
 
@@ -158,14 +160,14 @@ public class Inventory : MonoBehaviour {
                     else
                     {
                         pedacosFuncionando++;
-                        Debug.Log("Instancia funcionando perfeitamente");
+                        //Debug.Log("Instancia funcionando perfeitamente");
                     }
 
                 }
                 else
                 {
                     pedacosNaoTestados++;
-                    Debug.Log("Não foi possível testar o pedacoSoftware do tipo" + Tipo.ToString() + ". Testador para este tipo não está disponível no time.");
+                    //Debug.Log("Não foi possível testar o pedacoSoftware do tipo" + Tipo.ToString() + ". Testador para este tipo não está disponível no time.");
                 }
                 
 
@@ -173,10 +175,16 @@ public class Inventory : MonoBehaviour {
 
 
         }
-        Debug.Log("Numero de pedacos de Software desenvolvidos: " + totalPedacosSoftware + "\n");
-        Debug.Log("Numero de pedacos de Software com defeitos encontrados:" + pedacosComDefeito.ToString() + "\n");
-        Debug.Log("Numero de pedacos de Software funcionando:" + pedacosFuncionando.ToString() + "\n");
-        Debug.Log("Numero de pedacos de Software não testados:" + pedacosNaoTestados.ToString() + " (Motivo: Testadores para os respectivos pedacos de Software não foram contratados" + "\n");
+
+        text += "Numero de pedacos de Software desenvolvidos: " + totalPedacosSoftware + "\n";
+        //Debug.Log("Numero de pedacos de Software desenvolvidos: " + totalPedacosSoftware + "\n");
+        text += "Numero de pedacos de Software com defeitos encontrados e removidos:" + pedacosComDefeito.ToString() + "\n";
+        //Debug.Log("Numero de pedacos de Software com defeitos encontrados:" + pedacosComDefeito.ToString() + "\n");
+        text += "Numero de pedacos de Software funcionando:" + pedacosFuncionando.ToString() + "\n";
+        //Debug.Log("Numero de pedacos de Software funcionando:" + pedacosFuncionando.ToString() + "\n");
+        text += "Numero de pedacos de Software não testados:" + pedacosNaoTestados.ToString() + " (Motivo: Testadores para os respectivos pedacos de Software não foram contratados" + "\n";
+        //Debug.Log("Numero de pedacos de Software não testados:" + pedacosNaoTestados.ToString() + " (Motivo: Testadores para os respectivos pedacos de Software não foram contratados" + "\n");
+        return text;
     }
 
 	public int AdicionaTipoDeSoftware(pedacoSoftware pedaco) {

@@ -35,7 +35,9 @@ public class usaRecursos : MonoBehaviour {
     public GameObject controleVersao;
 
     public float duracaoRecursos = 3.0f;
-    
+
+    public GameObject MenuTestarSoftware;
+    private GameObject LogTeste;
 
     // Use this for initialization
     void Start () {
@@ -45,6 +47,7 @@ public class usaRecursos : MonoBehaviour {
         recursos = GameObject.Find("GerenciarTime");
         inventario = GameObject.Find("Canvas/Inventario");
         Timer = GameObject.Find("Canvas/Timer/Panel/Text");
+        LogTeste = MenuTestarSoftware.gameObject.transform.FindChild("Log").gameObject;
 
     }
 	
@@ -288,9 +291,12 @@ public class usaRecursos : MonoBehaviour {
     //Essa função é chamada a cada clique no botão Testar Software.
     public void TestaPedacosSoftware()
     {
+
+        string text = "";
+            text = inventario.GetComponent<Inventory>().testaPedacosSoftware(recursos.GetComponent<Recursos>().testador);
+        //Debug.Log(text);
         
-            inventario.GetComponent<Inventory>().testaPedacosSoftware(recursos.GetComponent<Recursos>().testador);
-        
+        LogTeste.GetComponent<Text>().text = text;
     }
 
     public void organizaTempo()
