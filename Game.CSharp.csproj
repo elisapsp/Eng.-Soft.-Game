@@ -78,7 +78,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ImportText.cs" />
     <Compile Include="Assets\scripts\AtualizaAvisoMenuGerenciarTime.cs" />
     <Compile Include="Assets\scripts\BugCollision.cs" />
     <Compile Include="Assets\scripts\Cliente.cs" />
@@ -87,6 +86,7 @@
     <Compile Include="Assets\scripts\ExitGame.cs" />
     <Compile Include="Assets\scripts\GUITextureAboveObject.cs" />
     <Compile Include="Assets\scripts\GerenciadorJogo.cs" />
+    <Compile Include="Assets\scripts\ImportText.cs" />
     <Compile Include="Assets\scripts\Inventory.cs" />
     <Compile Include="Assets\scripts\PlataformaCai.cs" />
     <Compile Include="Assets\scripts\Player.cs" />

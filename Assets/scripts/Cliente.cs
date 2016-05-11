@@ -19,6 +19,9 @@ public class Cliente : MonoBehaviour {
     //contém o numero do objetivo corrente (0,1,2 ou 3).
     public int indiceObjetivo;
 
+    public GameObject MenuObjetivo;
+    private GameObject descricaoObjetivo;
+
     void limpaArrayFalas()
     {
         for (int i = 0; i < FalasCliente.Length; i++)
@@ -33,6 +36,8 @@ public class Cliente : MonoBehaviour {
         
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
         Timer = GameObject.Find("Canvas/Timer/Panel/Text");
+        descricaoObjetivo = MenuObjetivo.gameObject.transform.FindChild("Objetivo").gameObject;
+
         indiceObjetivo = 0;
        
 
@@ -335,26 +340,34 @@ public class Cliente : MonoBehaviour {
 
     public void descreveObjetivo()
     {
-        if (indiceObjetivo > 3)
-        {
-            indiceObjetivo = 3;
-        }
+        descricaoObjetivo.GetComponent<Text>().text = "";
 
-        
-        
-            for (int i = 0; i < 4; i++)
+
+            
+            if (indiceObjetivo > 3)
             {
-                Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
+                indiceObjetivo = 3;
             }
 
-        Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
-        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == true)
+
+        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == false)
         {
-            Debug.Log("Objetivo concluído com sucesso!");
+            for (int i = 0; i < 4; i++)
+            {
+                descricaoObjetivo.GetComponent<Text>().text += "Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i] + "\n";
+                //Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
+            }
+            descricaoObjetivo.GetComponent<Text>().text += "Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes." + "\n";
+            //Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
+
+
         }
+        else
+        {
+            descricaoObjetivo.GetComponent<Text>().text += "Objetivos concluídos com sucesso!";
+            Debug.Log("Objetivos concluídos com sucesso!");
 
-
-      
+        }
     }
 
 
