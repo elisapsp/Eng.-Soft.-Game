@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GerenciadorJogo : MonoBehaviour {
 
@@ -27,6 +28,8 @@ public class GerenciadorJogo : MonoBehaviour {
     public Vector3 posicaoInicialPlayer;
     public int countDiasTrabalhados;
 
+    private GameObject PlayerController;
+    private GameObject[] BotoesMenuJogador;
 
     public static GerenciadorJogo instance; //singleton
 
@@ -55,9 +58,42 @@ public class GerenciadorJogo : MonoBehaviour {
       GameWait = true; 
       GameStart = false;
         objetivoConcluido = false;
-
+        PlayerController = GameObject.Find("Player");
         recursos = GameObject.Find("GerenciarTime");
       Timer = GameObject.Find("Canvas/Timer/Panel/Text");
+
+         BotoesMenuJogador = GameObject.FindGameObjectsWithTag("BotaoMenuJogador");
+    }
+
+    void togglefreezePlayer()
+    {
+        if (Timer.GetComponent<Timer>().freeze == true || GameWait == true)
+        {
+            PlayerController.GetComponent<Player>().enabled = false;
+        }
+        else
+        {
+            PlayerController.GetComponent<Player>().enabled = true;
+        }
+    }
+
+    void toggleBotoesMenuJogador()
+    {
+
+        if (GameWait == true)
+        {
+            foreach (GameObject botao in BotoesMenuJogador)
+            {
+                botao.GetComponent<Button>().interactable = false;
+            }
+        }
+        else
+        {
+            foreach (GameObject botao in BotoesMenuJogador)
+            {
+                botao.GetComponent<Button>().interactable = true;
+            }
+        }
     }
 
 	void Update() {
@@ -65,6 +101,8 @@ public class GerenciadorJogo : MonoBehaviour {
 			player.position = posicaoSalva;
 		}
 
+        togglefreezePlayer();
+        toggleBotoesMenuJogador();
         //Se tiver dado GameOver (ou seja, o Tempo do jogo ter chegado a 0).
         if (GameOver == true)
         {

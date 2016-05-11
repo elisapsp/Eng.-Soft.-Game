@@ -8,11 +8,14 @@ public class Timer : MonoBehaviour {
     private GameObject GerenciadorJogo;
 
     public float timer;
+
+    public bool freeze;
 	// Use this for initialization
 	void Start () {
 
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
         tempoInicial = timer;
+        freeze = false;
 	}
 
 
@@ -27,18 +30,21 @@ public class Timer : MonoBehaviour {
             GerenciadorJogo.GetComponent<GerenciadorJogo>().GameStart == false)
         {
 
-            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == false) { 
-                   
-        if (timer <= 0)
-        {
-            timer = 0;
-            GerenciadorJogo.GetComponent<GerenciadorJogo>().GameOver = true;
-                Debug.Log("GameOver");
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
+            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == false ) {
+
+                if (freeze == false)
+                {
+                    if (timer <= 0)
+                    {
+                        timer = 0;
+                        GerenciadorJogo.GetComponent<GerenciadorJogo>().GameOver = true;
+                        Debug.Log("GameOver");
+                    }
+                    else
+                    {
+                        timer -= Time.deltaTime;
+                    }
+                }
             }
         }
 

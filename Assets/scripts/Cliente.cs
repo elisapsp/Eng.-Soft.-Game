@@ -67,7 +67,12 @@ public class Cliente : MonoBehaviour {
 
     public void ligacao()
     {
-       
+        //Limpa as falas antigas.
+        limpaArrayFalas();
+
+        //Guarda o index da fala no array, para saber onde colocar.
+        int indexFala = 0;
+
         //Script do tempo da fase.
         tempo = Timer.GetComponent<Timer>();
         //Custo da ligação: 5 segundos do tempo da fase.
@@ -98,7 +103,7 @@ public class Cliente : MonoBehaviour {
                 //Se a cor estiver correta.
                 if (softwarePlayer.cores[i] == objetivo[indiceObjetivo][i])
                 {
-                    
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "A cor do pedaço de software do tipo " + (i + 1).ToString() + " está correta." + "\n";
                     numCoresCorretas++;
                     Debug.Log("A cor do pedaço de software do tipo " + (i + 1).ToString() + " está correta.");
 
@@ -112,6 +117,7 @@ public class Cliente : MonoBehaviour {
                 }
                 else
                 {
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "A cor do pedaço de software do tipo " + (i + 1).ToString() + " não está correta. " + "A cor deste tipo deve ser: " + objetivo[indiceObjetivo][i] + ".\n";
                     Debug.Log("A cor do pedaço de software do tipo " + (i + 1).ToString() + " não está correta.");
                     Debug.Log("A cor deste tipo deve ser: " + objetivo[indiceObjetivo][i]);
                 }
@@ -123,11 +129,13 @@ public class Cliente : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Falta o pedaço de software do tipo " + (i + 1).ToString());
+                 FalasCliente[indexFala] = FalasCliente[indexFala] + "Falta o pedaço de software do tipo " + (i + 1).ToString() + "\n";
+                 Debug.Log("Falta o pedaço de software do tipo " + (i + 1).ToString());
             }
 
         }
-        
+
+        indexFala++;
 
         //Se o jogador estiver com o software todo pronto e funcionando.
         if (numCoresCorretas == 4 && numFuncionando == 4)
@@ -138,18 +146,21 @@ public class Cliente : MonoBehaviour {
             //Se o jogador não tiver zerado o jogo.
             if (indiceObjetivo < 4)
             {
+                FalasCliente[indexFala] = FalasCliente[indexFala] + "Pensando melhor, acho que o software ficará melhor de outro jeito. Aqui vai a minha nova preferência das cores de cada tipo que deve me entregar.\n";
                 //Muda o objetivo.
                 Debug.Log("Pensando melhor, acho que o software ficará melhor de outro jeito. Aqui vai a minha nova preferência das cores de cada tipo que deve me entregar.");
 
 
                 for (int i = 0; i < 4; i++)
                 {
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i] + ".\n";
                     Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
                 }
-                
+
             }
             else
             {
+                FalasCliente[indexFala] = FalasCliente[indexFala] + "Pelo que você está me falando, essas são as cores que especifiquei,porém, não consigo usá-lo por telefone. Me encontre para eu utilizar o software e ver se está funcionando.\n";
                 //O jogador zerou o jogo, porém, ele deve encontrar com o cliente para que o cliente use a ultima versão e fale que está bom.
                 Debug.Log("Pelo que você está me falando, essas são as cores que especifiquei,porém, não consigo usá-lo por telefone. Me encontre para eu utilizar o software e ver se está funcionando.");
             }
@@ -157,12 +168,19 @@ public class Cliente : MonoBehaviour {
         }
         else if (numCoresCorretas > 0)
         {
-            
+            FalasCliente[indexFala] = FalasCliente[indexFala] + "Pelo que você está me falando, algumas desses pedaços de software já estão com as cores que especifiquei,porém, não consigo usá-lo por telefone. Quando achar necessário, me encontre para eu utilizar esses pedaços de software com as cores corretas e ver se está funcionando.\n";
             Debug.Log("Pelo que você está me falando, algumas desses pedaços de software já estão com as cores que especifiquei,porém, não consigo usá-lo por telefone. Quando achar necessário, me encontre para eu utilizar esses pedaços de software com as cores corretas e ver se está funcionando.");
 
         }
+        else
+        {
+            FalasCliente[indexFala] = FalasCliente[indexFala] + "Nada está de acordo com o que eu pedi!";
+        }
 
-       
+        Timer.GetComponent<Timer>().freeze = true;
+        DialogBoxText.transform.parent.gameObject.SetActive(true);
+
+        DialogBoxText.GetComponent<ImportText>().text = FalasCliente;
 
     }
 
@@ -258,7 +276,7 @@ public class Cliente : MonoBehaviour {
         }
         else
         {
-            FalasCliente[indexFala] = FalasCliente[indexFala] + "Tudo que me entregou não está de acordo com o que eu pedi!";
+            FalasCliente[indexFala] = FalasCliente[indexFala] + "Nada está de acordo com o que eu pedi!";
             //Debug.Log("Tudo que me entregou não está de acordo com o que eu pedi!");
         }
 
@@ -308,6 +326,8 @@ public class Cliente : MonoBehaviour {
         Debug.Log("Fala do cliente: " + FalasCliente[1]);
         Debug.Log("Fala do cliente: " + FalasCliente[2]);
         */
+        Timer.GetComponent<Timer>().freeze = true;
+
         DialogBoxText.transform.parent.gameObject.SetActive(true);
         
         DialogBoxText.GetComponent<ImportText>().text = FalasCliente;

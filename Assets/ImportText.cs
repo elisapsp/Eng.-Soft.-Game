@@ -8,11 +8,11 @@ public class ImportText : MonoBehaviour {
     public int limiteCaracteresPorLinha = 70;
     public string[] text;
     private int currentLine;
+    private GameObject Timer;
 
-
-	// Use this for initialization
-	void Start () {
-
+    // Use this for initialization
+    void Start () {
+        Timer = GameObject.Find("Canvas/Timer/Panel/Text");
         currentLine = 0;
         
 
@@ -40,7 +40,9 @@ public class ImportText : MonoBehaviour {
                 {
                     text = null;
                     currentLine = 0;
+                    Timer.GetComponent<Timer>().freeze = false;
                     gameObject.transform.parent.gameObject.SetActive(false);
+
                 }
                 else
                 { 
