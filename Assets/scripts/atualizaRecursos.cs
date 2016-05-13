@@ -73,7 +73,7 @@ public class atualizaRecursos : MonoBehaviour {
                 break;
             case "Conhecimento SCRUM":
                 string firstNumber;
-                string secondNumber;
+
                 if (recursos.GetComponent<Recursos>().ConhecimentoSCRUM == false)
                 {
                     firstNumber = 0.ToString();
