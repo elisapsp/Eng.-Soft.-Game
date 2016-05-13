@@ -9,7 +9,6 @@ public class ShowHideMenu : MonoBehaviour {
 
     public void toggleMenu()
     {
-        Debug.Log(gameObject.name);
         if (targetMenu.activeSelf == false)
         {
             GerenciadorJogo.GetComponent<OnePanelAtOnce>().cleanAllPanels();
