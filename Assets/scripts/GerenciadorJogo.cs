@@ -160,13 +160,25 @@ public class GerenciadorJogo : MonoBehaviour {
 
         //Se tiver na fase de remanejamento de recursos..
         if (GameWait == true)
-        {   
-            
+        {
+
+            //Descomentar depois!
+            /*
             GameStart = false;
             GameOver = false;
 
             //Coloca o menu de gerenciamento de recursos aparecendo.
             menuRecursos.SetActive(true);
+            */
+
+            /*
+             Deletar depois!
+             */
+            GameWait = false;
+            GameOver = false;
+            GameStart = true;
+
+
         }
 
         //Se não tiver no GameOver, e nem no estado de espera (quando é possivel remanejar recursos) e o jogo for começar.
