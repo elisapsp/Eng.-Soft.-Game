@@ -4,13 +4,11 @@ using System.Collections;
 public class lava : MonoBehaviour {
 
     private GameObject Timer;
-    private Transform player;
     private GameObject GerenciadorJogo;
 
     // Use this for initialization
     void Start () {
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         Timer = GameObject.Find("Canvas/Timer/Panel/Text");
     }
 

@@ -5,7 +5,7 @@ public class Recursos : MonoBehaviour {
 
 
 
-    public int PontosTotaisAbsoluto = 20;
+    
     public int PontosTotais = 20;
     public int minInt = 0;
     public bool minBool = false;
@@ -41,31 +41,42 @@ public class Recursos : MonoBehaviour {
     //Essa função deverá ser chamada a cada GameOver, para resetar os pontos.
     public void resetaRecursos()
     {
+        int gastoControleVersao = controleVersaoAbsoluto - controleVersao;
+        controleVersaoAbsoluto = controleVersao;
+
+        int gastoOrganizacaoTempo = OrganizacaoTempoAbsoluto - OrganizacaoTempoAbsoluto;
+        OrganizacaoTempoAbsoluto = OrganizacaoTempo;
+
+        int gastoAumentoSalario = aumentoSalarioAbsoluto - aumentoSalario;
+        aumentoSalarioAbsoluto = aumentoSalario;
+
+        int gastoPraticasMotivacionais = PraticasMotivacionaisAbsoluto - PraticasMotivacionais;
+        PraticasMotivacionaisAbsoluto = PraticasMotivacionais;
+
+        int gastoCafe = CafeAbsoluto - Cafe;
+        CafeAbsoluto = Cafe;
+
+       
+        int gastos = gastoAumentoSalario + gastoCafe + gastoOrganizacaoTempo + gastoPraticasMotivacionais + gastoControleVersao;
         
-        PontosTotais = PontosTotaisAbsoluto - desenvolvedores;
+        PontosTotais = PontosTotais + gastos;
+
+        
 
     
-    
+    /*
         testador[0] = false;
         testador[1] = false;
         testador[2] = false;
         testador[3] = false;
 
-        controleVersaoAbsoluto = 0;
-        controleVersao = 0;
-        nivelDebugAbsoluto = 0;
-        nivelDebug = 0;
-        ConhecimentoSCRUMAbsoluto = false;
-        ConhecimentoSCRUM = false;
-        OrganizacaoTempoAbsoluto = 0;
-        OrganizacaoTempo = 0;
-        aumentoSalarioAbsoluto = 0;
-        aumentoSalario = 0;
+       
+       
         PraticasMotivacionaisAbsoluto = 0;
         PraticasMotivacionais = 0;
         CafeAbsoluto = 0;
         Cafe = 0;
-
+        */
     }
 
 	// Use this for initialization

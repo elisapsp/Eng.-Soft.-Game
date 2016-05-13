@@ -139,13 +139,13 @@ public class GerenciadorJogo : MonoBehaviour {
             GameWait = true;
             GameOver = false;
 
-            
-
-            //Aumenta em 'pontoExtra (variável pública)' o numero de pontosTotaisAbsolutos.
-            recursos.GetComponent<Recursos>().PontosTotaisAbsoluto += pontoExtra;
-
             //Reseta os recursos.
             recursos.GetComponent<Recursos>().resetaRecursos();
+
+            //Aumenta em 'pontoExtra (variável pública)' o numero de pontosTotais.
+            recursos.GetComponent<Recursos>().PontosTotais += pontoExtra;
+
+            
 
             //Coloca o jogador na posição inicial da fase.
             player.position = posicaoInicialPlayer;
@@ -162,22 +162,12 @@ public class GerenciadorJogo : MonoBehaviour {
         if (GameWait == true)
         {
 
-            //Descomentar depois!
-            /*
+
             GameStart = false;
             GameOver = false;
 
             //Coloca o menu de gerenciamento de recursos aparecendo.
             menuRecursos.SetActive(true);
-            */
-
-            /*
-             Deletar depois!
-             */
-            GameWait = false;
-            GameOver = false;
-            GameStart = true;
-
 
         }
 

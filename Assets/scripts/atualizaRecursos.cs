@@ -23,53 +23,53 @@ public class atualizaRecursos : MonoBehaviour {
         {
 
             case "Desenvolvedores":
-                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().desenvolvedores.ToString();
+                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().desenvolvedores.ToString() + "/" + recursos.GetComponent<Recursos>().maxDesenvolvedores.ToString();
                 break;
             case "Testador 1":
                 if (recursos.GetComponent<Recursos>().testador[0] == true)
                 {
-                    gameObject.GetComponent<Text>().text = "1";
+                    gameObject.GetComponent<Text>().text = "1/1";
                 }
                 else
                 {
-                    gameObject.GetComponent<Text>().text = "0";
+                    gameObject.GetComponent<Text>().text = "0/1";
                 }
                 break;
             case "Testador 2":
                 if (recursos.GetComponent<Recursos>().testador[1] == true)
                 {
-                    gameObject.GetComponent<Text>().text = "1";
+                    gameObject.GetComponent<Text>().text = "1/1";
                 }
                 else
                 {
-                    gameObject.GetComponent<Text>().text = "0";
+                    gameObject.GetComponent<Text>().text = "0/1";
                 }
                 break;
             case "Testador 3":
                 if (recursos.GetComponent<Recursos>().testador[2] == true)
                 {
-                    gameObject.GetComponent<Text>().text = "1";
+                    gameObject.GetComponent<Text>().text = "1/1";
                 }
                 else
                 {
-                    gameObject.GetComponent<Text>().text = "0";
+                    gameObject.GetComponent<Text>().text = "0/1";
                 }
                 break;
             case "Testador 4":
                 if (recursos.GetComponent<Recursos>().testador[3] == true)
                 {
-                    gameObject.GetComponent<Text>().text = "1";
+                    gameObject.GetComponent<Text>().text = "1/1";
                 }
                 else
                 {
-                    gameObject.GetComponent<Text>().text = "0";
+                    gameObject.GetComponent<Text>().text = "0/1";
                 }
                 break;
             case "Controle de Versão":
-                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().controleVersao.ToString() + "/" + recursos.GetComponent<Recursos>().controleVersaoAbsoluto.ToString();
+                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().controleVersao.ToString() + "/" + recursos.GetComponent<Recursos>().maxControleVersao.ToString();
                 break;
             case "Nivel do Depurador":
-                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().nivelDebug.ToString() + "/" + recursos.GetComponent<Recursos>().nivelDebugAbsoluto.ToString();
+                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().nivelDebug.ToString() + "/" + recursos.GetComponent<Recursos>().maxNivelDebug.ToString();
                 break;
             case "Conhecimento SCRUM":
                 string firstNumber;
@@ -83,28 +83,21 @@ public class atualizaRecursos : MonoBehaviour {
                     firstNumber = 1.ToString();
                 }
 
-                if (recursos.GetComponent<Recursos>().ConhecimentoSCRUMAbsoluto == false)
-                {
-                    secondNumber = 0.ToString();
-                }
-                else
-                {
-                    secondNumber = 1.ToString();
-                }
+                
+                gameObject.GetComponent<Text>().text = firstNumber + "/" + 1.ToString();
 
-                gameObject.GetComponent<Text>().text = firstNumber + "/" + secondNumber;
                 break;
             case "Organização de Tempo":
-                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().OrganizacaoTempo.ToString() + "/" + recursos.GetComponent<Recursos>().OrganizacaoTempoAbsoluto.ToString();
+                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().OrganizacaoTempo.ToString() + "/" + recursos.GetComponent<Recursos>().maxOrganizacaoTempo.ToString();
                 break;
             case "Aumento de salário":
-                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().aumentoSalario.ToString() + "/" + recursos.GetComponent<Recursos>().aumentoSalarioAbsoluto.ToString();
+                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().aumentoSalario.ToString() + "/" + recursos.GetComponent<Recursos>().maxAumentoSalario.ToString();
                 break;
             case "Práticas Motivacionais":
-                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().PraticasMotivacionais.ToString() + "/" + recursos.GetComponent<Recursos>().PraticasMotivacionaisAbsoluto.ToString();
+                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().PraticasMotivacionais.ToString() + "/" + recursos.GetComponent<Recursos>().maxPraticasMotivacionais.ToString();
                 break;
             case "Café":
-                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().Cafe.ToString() + "/" + recursos.GetComponent<Recursos>().CafeAbsoluto.ToString();
+                gameObject.GetComponent<Text>().text = recursos.GetComponent<Recursos>().Cafe.ToString() + "/" + recursos.GetComponent<Recursos>().maxCafe.ToString();
                 break;
 
             default:
