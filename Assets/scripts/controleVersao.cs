@@ -11,12 +11,14 @@ public class controleVersao : MonoBehaviour {
 
 	//Será o Log do commit.
 	public string Log;
+    private GameObject Player;
 
-	public void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.name == "Player") { 
-		GerenciadorJogo.instance.posicaoSalva = collider.transform.position;
-		print(Log);
-        }
+    void Start()
+    {
+        Player = GameObject.Find("Player");
+        GerenciadorJogo.instance.posicaoSalva = Player.transform.position;
     }
+    
+    
 
 }
