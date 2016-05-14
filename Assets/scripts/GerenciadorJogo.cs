@@ -115,14 +115,19 @@ public class GerenciadorJogo : MonoBehaviour {
 
 	public void RestorePosition(GameObject commit) {
 		player.position = commit.transform.position;
-	}
+        posicaoSalva = player.position;
+
+        //A cada git checkout, o jogador perde 5 segundos do tempo da fase.
+        Timer.GetComponent<Timer>().timer -= 5.0f;
+
+    }
 
 	void Update() {
 
        
         
 
-        if (Input.GetKeyDown("c")) {
+        if (Input.GetKeyDown("c") && CommitList.childCount>0) {
 			player.position = posicaoSalva;
 		}
         //Se algum painel estiver ativado, o tempo congela. Isso facilitará o jogo.
