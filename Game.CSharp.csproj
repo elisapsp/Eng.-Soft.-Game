@@ -81,6 +81,7 @@
     <Compile Include="Assets\scripts\AtualizaAvisoMenuGerenciarTime.cs" />
     <Compile Include="Assets\scripts\BugCollision.cs" />
     <Compile Include="Assets\scripts\Cliente.cs" />
+    <Compile Include="Assets\scripts\CommitInstance.cs" />
     <Compile Include="Assets\scripts\DaDano.cs" />
     <Compile Include="Assets\scripts\DragHandler.cs" />
     <Compile Include="Assets\scripts\ExitGame.cs" />
