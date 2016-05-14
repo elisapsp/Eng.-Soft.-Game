@@ -40,6 +40,8 @@ public class GerenciadorJogo : MonoBehaviour {
     //Contador de GameOvers.
     public int numDiasTrabalhados;
 
+	public Transform CommitList;
+
 	void Awake() {
 		if (instance != null) {
 			Debug.LogError("GerenciadorJogo deve ter uma unica instancia");
@@ -49,21 +51,21 @@ public class GerenciadorJogo : MonoBehaviour {
 
     void Start()
     {
-        //salva a posição inicial do player.
-        posicaoInicialPlayer = player.position;
+		//salva a posição inicial do player.
+		posicaoInicialPlayer = player.position;
 
-        posicaoSalva = posicaoInicialPlayer;
+		posicaoSalva = posicaoInicialPlayer;
 
-        //O jogo começa na fase de remanejamento dos recursos.
-        GameOver = false;
-      GameWait = true; 
-      GameStart = false;
-        objetivoConcluido = false;
-        PlayerController = GameObject.Find("Player");
-        recursos = GameObject.Find("GerenciarTime");
-      Timer = GameObject.Find("Canvas/Timer/Panel/Text");
+		//O jogo começa na fase de remanejamento dos recursos.
+		GameOver = false;
+		GameWait = true; 
+		GameStart = false;
+		objetivoConcluido = false;
+		PlayerController = GameObject.Find("Player");
+		recursos = GameObject.Find("GerenciarTime");
+		Timer = GameObject.Find("Canvas/Timer/Panel/Text");
 
-         BotoesMenuJogador = GameObject.FindGameObjectsWithTag("BotaoMenuJogador");
+		BotoesMenuJogador = GameObject.FindGameObjectsWithTag("BotaoMenuJogador");
        
 }
 
@@ -110,6 +112,10 @@ public class GerenciadorJogo : MonoBehaviour {
             Timer.GetComponent<Timer>().freeze = false;
         }
     }
+
+	public void RestorePosition(GameObject commit) {
+		player.position = commit.transform.position;
+	}
 
 	void Update() {
 
