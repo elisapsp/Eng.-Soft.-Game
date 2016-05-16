@@ -72,6 +72,8 @@ public class Cliente : MonoBehaviour {
 
     public void ligacao()
     {
+        int corretoEfunciona = 0;
+
         //Limpa as falas antigas.
         limpaArrayFalas();
 
@@ -116,6 +118,7 @@ public class Cliente : MonoBehaviour {
                     if (softwarePlayer.funciona[i] == true)
                     {
                         numFuncionando++;
+                        corretoEfunciona++;
                     }
 
 
@@ -142,8 +145,24 @@ public class Cliente : MonoBehaviour {
 
         indexFala++;
 
+        //no objetivo 1 ou 2.
+        if (indiceObjetivo == 1 || indiceObjetivo == 2)
+        {
+            //Se o jogador tiver pelo menos tres pedaços de software corretos e funcionando.
+            if (corretoEfunciona >= 3)
+            {
+                //Pula para o próximo objetivo.
+                indiceObjetivo++;
+                FalasCliente[indexFala] = FalasCliente[indexFala] + "Pensando melhor, acho que o software ficará melhor de outro jeito. Aqui vai a minha nova preferência das cores de cada tipo que deve me entregar.\n";
+                for (int i = 0; i < 4; i++)
+                {
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i] + ".\n";
+                }
+                FalasCliente[indexFala] = FalasCliente[indexFala] + "Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.";
+            }
+        }
         //Se o jogador estiver com o software todo pronto e funcionando.
-        if (numCoresCorretas == 4 && numFuncionando == 4)
+        else if (numCoresCorretas == 4 && numFuncionando == 4)
         {
             //Pula para o próximo objetivo.
             indiceObjetivo++;
@@ -192,7 +211,7 @@ public class Cliente : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-
+        int corretoEfunciona = 0;
         //Se quem colidir for um player.
         if (collision.tag == "Player")
         {
@@ -238,6 +257,7 @@ public class Cliente : MonoBehaviour {
                         if (softwarePlayer.funciona[i] == true)
                     {
                         numFuncionando++;
+                        corretoEfunciona++;
                     }
 
 
@@ -287,7 +307,24 @@ public class Cliente : MonoBehaviour {
 
         indexFala++;
 
-        if (numCoresCorretas == 4 && numFuncionando == 4)
+            //no objetivo 1 ou 2.
+            if (indiceObjetivo == 1 || indiceObjetivo == 2)
+            {
+                //Se o jogador tiver pelo menos tres pedaços de software corretos e funcionando.
+                if (corretoEfunciona >= 3)
+                {
+                    //Pula para o próximo objetivo.
+                    indiceObjetivo++;
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Pensando melhor, acho que o software ficará melhor de outro jeito. Aqui vai a minha nova preferência das cores de cada tipo que deve me entregar.\n";
+                    for (int i = 0; i < 4; i++)
+                    {
+                        FalasCliente[indexFala] = FalasCliente[indexFala] + "Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i] + ".\n";
+                    }
+                    FalasCliente[indexFala] = FalasCliente[indexFala] + "Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.";
+                }
+            }
+            //Se o jogador estiver com o software todo pronto e funcionando.
+            else if (numCoresCorretas == 4 && numFuncionando == 4)
         {
             indiceObjetivo++;
 
