@@ -3,6 +3,12 @@ using System.Collections;
 
 public class movimentacaoObjeto : MonoBehaviour {
 
+    //movimentação vertical.
+    public bool vertical;
+
+    //movimentação horizontal (padrão.)
+    public bool horizontal;
+
     //Inidica a velocidade do objeto.
     public float velocidade;
 
@@ -20,6 +26,12 @@ public class movimentacaoObjeto : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+
+        if (vertical == false && horizontal == false)
+        {
+            horizontal = true;
+        }
+
 
     }
 
@@ -53,11 +65,24 @@ public class movimentacaoObjeto : MonoBehaviour {
         //movimenta
         if (direcao == 1)
         {
+            if (horizontal) { 
             transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(-Vector2.up * velocidade * Time.deltaTime);
+            }
         }
         else
         {
-            transform.Translate(-Vector2.right * velocidade * Time.deltaTime);
+            if (horizontal)
+            {
+                transform.Translate(-Vector2.right * velocidade * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(-Vector2.down * velocidade * Time.deltaTime);
+            }
         }
     }
 }
