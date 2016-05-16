@@ -27,6 +27,7 @@ public class IntroSpeaking : MonoBehaviour {
         if (DialogBoxText.transform.parent.gameObject.activeSelf == false)
         {
             //mudaDeFase
+            
             Application.LoadLevel(novaFase);
         }
 
