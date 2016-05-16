@@ -6,7 +6,7 @@ public class bolaFogo : MonoBehaviour {
     private float posicaoY = 0f;
     private GameObject Timer;
     private GameObject GerenciadorJogo;
-
+    
     // Use this for initialization
     void Start () {
 
@@ -15,10 +15,10 @@ public class bolaFogo : MonoBehaviour {
         Timer = GameObject.Find("Canvas/Timer/Panel/Text");
 
         //Depois que este objeto for criado, será destruido em 2 segundos.
-        Destroy(gameObject, 2f);
+        //Destroy(gameObject, 2f);
 
         //Assim qeu for criado, irá dar um salto de 400f (força do pulo).
-        GetComponent<Rigidbody2D>().AddForce(transform.up * 400f);
+        GetComponent<Rigidbody2D>().AddForce(transform.up * 600f);
 
         //guarda a posicao Y  de quando o objeto foi criado.
         posicaoY = transform.position.y;
@@ -49,10 +49,20 @@ public class bolaFogo : MonoBehaviour {
 
             //TODO: Substituir isso para colocar o player na ultima posicao do checkpoint.
             colisor.gameObject.GetComponent<Transform>().position = GerenciadorJogo.GetComponent<GerenciadorJogo>().posicaoSalva;
-           
 
-           
 
+
+
+        }
+        //Se colidir com a lava
+        else if (colisor.gameObject.tag == "Lava")
+        {
+            //Se a bola de fogo estiver descendo.
+            if (gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
+            {
+                //Destrói a bola de fogo.
+                Destroy(gameObject, 0f);
+            }
         }
     }
 }

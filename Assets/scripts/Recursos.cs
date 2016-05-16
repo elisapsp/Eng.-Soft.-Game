@@ -44,7 +44,7 @@ public class Recursos : MonoBehaviour {
         int gastoControleVersao = controleVersaoAbsoluto - controleVersao;
         controleVersaoAbsoluto = controleVersao;
 
-        int gastoOrganizacaoTempo = OrganizacaoTempoAbsoluto - OrganizacaoTempoAbsoluto;
+        int gastoOrganizacaoTempo = OrganizacaoTempoAbsoluto - OrganizacaoTempo;
         OrganizacaoTempoAbsoluto = OrganizacaoTempo;
 
         int gastoAumentoSalario = aumentoSalarioAbsoluto - aumentoSalario;

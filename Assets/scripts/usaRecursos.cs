@@ -41,6 +41,14 @@ public class usaRecursos : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        usandoCafe = false;
+        usandoPraticasMotivacionais = false;
+        usandoAumentoSalario = false;
+        usandoCafe = false;
+        tempoUsoPraticasMotivacionais = duracaoRecursos;
+        tempoUsoCafe = duracaoRecursos;
+        tempoUsoAumentoSalario = duracaoRecursos;
+        
 
         player = gameObject.GetComponentInParent<Transform>().transform.gameObject;
         playerScript = player.GetComponent<Player>();
