@@ -8,6 +8,8 @@ public class Recursos : MonoBehaviour {
     
     public int PontosTotais = 20;
     public int minInt = 0;
+   
+
     public bool minBool = false;
     public int desenvolvedores; //Numero de desenvolvedores (quantidade de pedaco de software que pode carregar).
     public int maxDesenvolvedores = 3;
@@ -19,6 +21,7 @@ public class Recursos : MonoBehaviour {
     public int controleVersaoAbsoluto;
     public int controleVersao; //NumeroDeCheckpoints
     public int maxControleVersao = 10;
+    public int minControleVersao = 0;
     public int nivelDebug; //Arma: 0 = pulo (default). 1 = tiro1. 2 = tiro2.
     public int maxNivelDebug = 2;
     public bool ConhecimentoSCRUM; //Pulo Duplo
@@ -41,8 +44,10 @@ public class Recursos : MonoBehaviour {
     //Essa função deverá ser chamada a cada GameOver, para resetar os pontos.
     public void resetaRecursos()
     {
+        /*
         int gastoControleVersao = controleVersaoAbsoluto - controleVersao;
         controleVersaoAbsoluto = controleVersao;
+        */
 
         int gastoOrganizacaoTempo = OrganizacaoTempoAbsoluto - OrganizacaoTempo;
         OrganizacaoTempoAbsoluto = OrganizacaoTempo;
@@ -57,7 +62,7 @@ public class Recursos : MonoBehaviour {
         CafeAbsoluto = Cafe;
 
        
-        int gastos = gastoAumentoSalario + gastoCafe + gastoOrganizacaoTempo + gastoPraticasMotivacionais + gastoControleVersao;
+        int gastos = gastoAumentoSalario + gastoCafe + gastoOrganizacaoTempo + gastoPraticasMotivacionais /*+ gastoControleVersao*/;
         
         PontosTotais = PontosTotais + gastos;
 

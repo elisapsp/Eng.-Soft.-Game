@@ -64,5 +64,9 @@ public class bolaFogo : MonoBehaviour {
                 Destroy(gameObject, 0f);
             }
         }
+        else if (colisor.gameObject.tag == "Inimigo")
+        {
+            colisor.gameObject.GetComponentInChildren<vidaObjeto>().PerdeVida(colisor.gameObject.GetComponentInChildren<vidaObjeto>().maxVida);
+        }
     }
 }
