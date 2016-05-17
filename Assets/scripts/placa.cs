@@ -64,9 +64,9 @@ public class placa : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-
-        OnPressEnter();
-
+        if (collision.tag == "Player") { 
+            OnPressEnter();
+        }
     }
 
     public void OnPressEnter()
