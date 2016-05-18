@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
 public class Cliente : MonoBehaviour {
 
@@ -379,6 +382,9 @@ public class Cliente : MonoBehaviour {
 
     public void descreveObjetivo()
     {
+
+       
+        
         descricaoObjetivo.GetComponent<Text>().text = "";
 
 
