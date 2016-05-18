@@ -46,9 +46,10 @@ public class placa : MonoBehaviour
         if (collision.tag == "Player")
         {
             tooltip.GetComponent<SpriteRenderer>().enabled = true;
+            OnPressEnter();
         }
 
-        OnPressEnter();
+        
     }
 
     void OnTriggerExit2D(Collider2D collision)

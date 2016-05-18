@@ -4,8 +4,10 @@ using System.Collections;
 public class porta : MonoBehaviour
 {
 
+    
     private softwareDesenvolvido softwarePlayer;
     private GameObject cliente;
+    private GameObject GerenciadorJogo;
     private bool locked;
 
     // Use this for initialization
@@ -17,6 +19,7 @@ public class porta : MonoBehaviour
         gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("locked", locked);
         //gameObject.GetComponent<Animator>().SetBool("locked", locked);
         cliente = GameObject.Find("Cliente");
+        GerenciadorJogo = GameObject.Find("GerenciadorJogo");
 
     }
 
@@ -76,7 +79,7 @@ public class porta : MonoBehaviour
 
                 }
 
-                if (corretoEfunciona >= 3)
+                if (corretoEfunciona >= 3 && GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos == 0)
                 {
                     
                     locked = false;
