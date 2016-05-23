@@ -206,7 +206,7 @@ public class gerenciaConteudoPainel : MonoBehaviour {
 
                 }
 
-                if (recursos.GetComponent<Recursos>().controleVersaoAbsoluto == recursos.GetComponent<Recursos>().minInt || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
+                if (recursos.GetComponent<Recursos>().controleVersaoAbsoluto == recursos.GetComponent<Recursos>().minControleVersao || GerenciadorJogo.GetComponent<GerenciadorJogo>().GameWait == false)
                 {
 
                     botaoRm.GetComponent<Button>().interactable = false;

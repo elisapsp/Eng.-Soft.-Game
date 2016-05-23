@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\adiarTrabalho.cs" />
+    <Compile Include="Assets\fakeWall.cs" />
     <Compile Include="Assets\porta.cs" />
     <Compile Include="Assets\scripts\AtualizaAvisoMenuGerenciarTime.cs" />
     <Compile Include="Assets\scripts\Boss.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\scripts\adicionaPontos.cs" />
     <Compile Include="Assets\scripts\atualizaRecursos.cs" />
     <Compile Include="Assets\scripts\bolaFogo.cs" />
+    <Compile Include="Assets\scripts\bolaFogo2.cs" />
     <Compile Include="Assets\scripts\camera.cs" />
     <Compile Include="Assets\scripts\cogumelo.cs" />
     <Compile Include="Assets\scripts\controleVersao.cs" />

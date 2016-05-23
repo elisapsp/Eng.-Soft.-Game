@@ -260,6 +260,7 @@ public class usaRecursos : MonoBehaviour {
             {
                 Instantiate(controleVersao, transform.position, controleVersao.transform.rotation);
                 recursos.GetComponent<Recursos>().controleVersao--;
+                recursos.GetComponent<Recursos>().minControleVersao++;
             }
             else
             {

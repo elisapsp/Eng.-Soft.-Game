@@ -63,6 +63,8 @@ public class pedacoSoftware : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision) {
         int checaEspacoDisponivel;
+
+        if (collision.tag == "Player") { 
         if (this.gameObject.activeSelf) {
 
             //Se o pedacoSoftware for preto, significa que ele foi testado e não está funcionando.
@@ -77,6 +79,7 @@ public class pedacoSoftware : MonoBehaviour {
             }
         }
 	}
+    }
 
-  
+
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class bolaFogo : MonoBehaviour {
+public class bolaFogo2 : MonoBehaviour {
 
     private float posicaoY = 0f;
     private GameObject Timer;
@@ -18,7 +18,7 @@ public class bolaFogo : MonoBehaviour {
         //Destroy(gameObject, 2f);
 
         //Assim qeu for criado, irá dar um salto de 400f (força do pulo).
-        GetComponent<Rigidbody2D>().AddForce(transform.up * 600f);
+        GetComponent<Rigidbody2D>().AddForce(transform.up * 400f);
 
         //guarda a posicao Y  de quando o objeto foi criado.
         posicaoY = transform.position.y;

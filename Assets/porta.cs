@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class porta : MonoBehaviour
 {
 
+    
     private softwareDesenvolvido softwarePlayer;
     private GameObject cliente;
+    private GameObject GerenciadorJogo;
     private bool locked;
 
     // Use this for initialization
@@ -16,17 +19,11 @@ public class porta : MonoBehaviour
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("locked", locked);
         //gameObject.GetComponent<Animator>().SetBool("locked", locked);
-        cliente = GameObject.Find("Cliente");
+        cliente = GameObject.FindGameObjectsWithTag("NPC")[0];
+        GerenciadorJogo = GameObject.Find("GerenciadorJogo");
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,7 +35,7 @@ public class porta : MonoBehaviour
         {
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             int indiceObjetivo = cliente.GetComponent<Cliente>().indiceObjetivo;
-
+            Debug.Log(indiceObjetivo);
 
             //Se estiver no ultimo objetivo
             if (indiceObjetivo == 3)
@@ -76,7 +73,7 @@ public class porta : MonoBehaviour
 
                 }
 
-                if (corretoEfunciona >= 3)
+                if (corretoEfunciona >= 3 && GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos == 0)
                 {
                     
                     locked = false;
@@ -136,7 +133,8 @@ public class porta : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             //Pula pra outra fase.
-            Application.LoadLevel("test0");
+            SceneManager.LoadScene("test0");
+            
 
         }
 

@@ -29,12 +29,17 @@ public class lava : MonoBehaviour {
 
 
             //reduz o tempo da fase em 5 segundos.
-             Timer.GetComponent<Timer>().timer -= 5f;
+            Timer.GetComponent<Timer>().timer -= 5f;
 
             //deve voltar para o ultimo checkpoint salvo e reduzir o tempo do jogo em um valor.
             colisor.gameObject.GetComponent<Transform>().position = GerenciadorJogo.GetComponent<GerenciadorJogo>().posicaoSalva;
 
 
+        }
+        else if (colisor.gameObject.tag == "Inimigo")
+        {
+            
+            colisor.gameObject.GetComponentInChildren<vidaObjeto>().PerdeVida(colisor.gameObject.GetComponentInChildren<vidaObjeto>().maxVida);
         }
     }
 }
