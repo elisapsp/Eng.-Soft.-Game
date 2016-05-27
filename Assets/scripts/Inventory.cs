@@ -188,7 +188,7 @@ public class Inventory : MonoBehaviour {
     }
 
 	public int AdicionaTipoDeSoftware(pedacoSoftware pedaco) {
-        Debug.Log(pedaco.color);
+        //Debug.Log(pedaco.color);
         //Contem a string Tipo<numero do pedacoSoftware>.
         string TipoPedacoSoftware = "Tipo" + pedaco.tipo.ToString();
 

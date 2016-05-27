@@ -18,17 +18,17 @@ public class usaRecursos : MonoBehaviour {
     public float tempoRecargaArma = 0.2f;
     private float tempoRecargaCorrenteArma;
 
-    private float tempoUsoPraticasMotivacionais;
-    private bool usandoPraticasMotivacionais;
+    public float tempoUsoPraticasMotivacionais;
+    public bool usandoPraticasMotivacionais;
     public float velocidadePraticasMotivacionais = 0f;
 
-    private float tempoUsoCafe;
-    private bool usandoCafe;
+    public float tempoUsoCafe;
+    public bool usandoCafe;
     public float velocidadeCafe = 0f;
 
     public float forcaAumentoSalario = 0f;
-    private bool usandoAumentoSalario;
-    private float tempoUsoAumentoSalario;
+    public bool usandoAumentoSalario;
+    public float tempoUsoAumentoSalario;
 
     public float adicaoTempo;
 
