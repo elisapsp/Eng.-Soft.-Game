@@ -78,9 +78,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\adiarTrabalho.cs" />
-    <Compile Include="Assets\fakeWall.cs" />
-    <Compile Include="Assets\porta.cs" />
     <Compile Include="Assets\scripts\AtualizaAvisoMenuGerenciarTime.cs" />
     <Compile Include="Assets\scripts\BugCollision.cs" />
     <Compile Include="Assets\scripts\Cliente.cs" />
@@ -93,6 +90,9 @@
     <Compile Include="Assets\scripts\ImportText.cs" />
     <Compile Include="Assets\scripts\IntroSpeaking.cs" />
     <Compile Include="Assets\scripts\Inventory.cs" />
+    <Compile Include="Assets\scripts\OnGameOver.cs" />
+    <Compile Include="Assets\scripts\OnGameStart.cs" />
+    <Compile Include="Assets\scripts\OnGameWait.cs" />
     <Compile Include="Assets\scripts\OnePanelAtOnce.cs" />
     <Compile Include="Assets\scripts\PlataformaCai.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
@@ -101,14 +101,20 @@
     <Compile Include="Assets\scripts\ShowHideMenu.cs" />
     <Compile Include="Assets\scripts\Slot.cs" />
     <Compile Include="Assets\scripts\Timer.cs" />
+    <Compile Include="Assets\scripts\ToggleBotoesMenuJogador.cs" />
+    <Compile Include="Assets\scripts\ToggleFreezePlayer.cs" />
+    <Compile Include="Assets\scripts\ToggleFreezeTime.cs" />
+    <Compile Include="Assets\scripts\adiarTrabalho.cs" />
     <Compile Include="Assets\scripts\adicionaPontos.cs" />
     <Compile Include="Assets\scripts\atualizaRecursos.cs" />
+    <Compile Include="Assets\scripts\atualizaTempoUso.cs" />
     <Compile Include="Assets\scripts\bolaFogo.cs" />
     <Compile Include="Assets\scripts\bolaFogo2.cs" />
     <Compile Include="Assets\scripts\camera.cs" />
     <Compile Include="Assets\scripts\cogumelo.cs" />
     <Compile Include="Assets\scripts\controleVersao.cs" />
     <Compile Include="Assets\scripts\espinho.cs" />
+    <Compile Include="Assets\scripts\fakeWall.cs" />
     <Compile Include="Assets\scripts\gerenciaConteudoPainel.cs" />
     <Compile Include="Assets\scripts\lava.cs" />
     <Compile Include="Assets\scripts\leBugsCriticos.cs" />
@@ -119,6 +125,7 @@
     <Compile Include="Assets\scripts\pedacoSoftware.cs" />
     <Compile Include="Assets\scripts\placa.cs" />
     <Compile Include="Assets\scripts\pocao.cs" />
+    <Compile Include="Assets\scripts\porta.cs" />
     <Compile Include="Assets\scripts\removePontos.cs" />
     <Compile Include="Assets\scripts\showHideObject.cs" />
     <Compile Include="Assets\scripts\softwareDesenvolvido.cs" />
