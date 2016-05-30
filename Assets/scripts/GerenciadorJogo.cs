@@ -28,9 +28,9 @@ public class GerenciadorJogo : MonoBehaviour {
     public Vector3 posicaoInicialPlayer;
     public int countDiasTrabalhados;
 
-    private GameObject PlayerController;
-    private GameObject[] BotoesMenuJogador;
-    private GameObject[] PopUpMenus;
+   
+    
+    
 
     public static GerenciadorJogo instance; //singleton
 
@@ -61,57 +61,18 @@ public class GerenciadorJogo : MonoBehaviour {
 		GameWait = true; 
 		GameStart = false;
 		objetivoConcluido = false;
-		PlayerController = GameObject.Find("Player");
+		
 		recursos = GameObject.Find("GerenciarTime");
 		Timer = GameObject.Find("Canvas/Timer/Panel/Text");
 
-		BotoesMenuJogador = GameObject.FindGameObjectsWithTag("BotaoMenuJogador");
+		
        
 }
 
-    void togglefreezePlayer()
-    {
-        if (Timer.GetComponent<Timer>().freeze == true || GameWait == true)
-        {
-            PlayerController.GetComponent<Player>().enabled = false;
-        }
-        else
-        {
-            PlayerController.GetComponent<Player>().enabled = true;
-        }
-    }
+  
 
-    void toggleBotoesMenuJogador()
-    {
-
-        if (GameWait == true)
-        {
-            foreach (GameObject botao in BotoesMenuJogador)
-            {
-                botao.GetComponent<Button>().interactable = false;
-            }
-        }
-        else
-        {
-            foreach (GameObject botao in BotoesMenuJogador)
-            {
-                botao.GetComponent<Button>().interactable = true;
-            }
-        }
-    }
-
-    void FreezeTime()
-    {
-        PopUpMenus = GameObject.FindGameObjectsWithTag("PopUpMenu");
-        if (PopUpMenus.Length > 0)
-        {
-            Timer.GetComponent<Timer>().freeze = true;
-        }
-        else
-        {
-            Timer.GetComponent<Timer>().freeze = false;
-        }
-    }
+    
+   
 
 	public void RestorePosition(GameObject commit) {
 		player.position = commit.transform.position;
@@ -122,73 +83,18 @@ public class GerenciadorJogo : MonoBehaviour {
 
     }
 
+    public void goBackToLastPosition()
+    {
+        if (Input.GetKeyDown("c") && CommitList.childCount > 0)
+        {
+            player.position = posicaoSalva;
+        }
+    }
+
 	void Update() {
-
-       
         
-
-        if (Input.GetKeyDown("c") && CommitList.childCount>0) {
-			player.position = posicaoSalva;
-		}
-        //Se algum painel estiver ativado, o tempo congela. Isso facilitará o jogo.
-        FreezeTime();
-
-        //Se o tempo tiver parado, o jogador congela.
-        togglefreezePlayer();
-
-        //Se tiver na fase de GameWait, os botões (exceto o sair) não funcionarão.
-        toggleBotoesMenuJogador();
-
-        //Se tiver dado GameOver (ou seja, o Tempo do jogo ter chegado a 0).
-        if (GameOver == true)
-        {
-            //Aumenta o numero de dias trabalhados.
-            countDiasTrabalhados++;
-
-            //Entra a fase de remanejamento (GameWait == true).
-            GameStart = false;
-            GameWait = true;
-            GameOver = false;
-
-            //Reseta os recursos.
-            recursos.GetComponent<Recursos>().resetaRecursos();
-
-            //Aumenta em 'pontoExtra (variável pública)' o numero de pontosTotais.
-            recursos.GetComponent<Recursos>().PontosTotais += pontoExtra;
-
-            
-
-            //Coloca o jogador na posição inicial da fase.
-            player.position = posicaoInicialPlayer;
-
-            /*
-            Falta:
-            
-             1 - deletar todos os checkpoints.
-        
-             */
-        }
-
-        //Se tiver na fase de remanejamento de recursos..
-        if (GameWait == true)
-        {
-
-
-            GameStart = false;
-            GameOver = false;
-
-            //Coloca o menu de gerenciamento de recursos aparecendo.
-            menuRecursos.SetActive(true);
-
-        }
-
-        //Se não tiver no GameOver, e nem no estado de espera (quando é possivel remanejar recursos) e o jogo for começar.
-        if (GameWait == false && GameOver == false && GameStart == true)
-        {
-            //Seta o tempo denovo.
-            Timer.GetComponent<Timer>().timer = Timer.GetComponent<Timer>().tempoInicial;
-            GameStart = false;
-        }
+        goBackToLastPosition();
+ 
 	}
 
     //Essa função é chamada pelo botão Sair do Menu, dentro do menu de gerenciamento de recursos.
