@@ -69,17 +69,21 @@ public class GerenciadorJogo : MonoBehaviour {
        
 }
 
-  
 
-    
+
+	private GameObject oldCommit = null;
    
 
 	public void RestorePosition(GameObject commit) {
 		player.position = commit.transform.position;
         posicaoSalva = player.position;
+		commit.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+		if (oldCommit)
+			oldCommit.GetComponentInChildren<SpriteRenderer>().color= Color.white;
+		oldCommit = commit;
 
-        //A cada git checkout, o jogador perde 5 segundos do tempo da fase.
-        Timer.GetComponent<Timer>().timer -= 5.0f;
+		//A cada git checkout, o jogador perde 5 segundos do tempo da fase.
+		Timer.GetComponent<Timer>().timer -= 5.0f;
 
     }
 
