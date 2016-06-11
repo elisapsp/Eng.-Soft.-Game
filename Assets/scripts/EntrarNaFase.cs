@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class EntrarNaFase : MonoBehaviour {
 
@@ -24,8 +24,7 @@ public class EntrarNaFase : MonoBehaviour {
     public void goToScene()
     {
         nextScene = EventSystem.current.currentSelectedGameObject.name;
-        Application.LoadLevel(nextScene);
-        
+        SceneManager.LoadScene(nextScene);
     }
 
     public void quitGame()
