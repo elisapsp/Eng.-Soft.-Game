@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class porta : MonoBehaviour
 {
-
+    private GameObject score;
     private GameObject player;
     private softwareDesenvolvido softwarePlayer;
     private GameObject cliente;
@@ -14,6 +14,7 @@ public class porta : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         player = GameObject.Find("Player");
         locked = true;
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
@@ -21,6 +22,7 @@ public class porta : MonoBehaviour
         //gameObject.GetComponent<Animator>().SetBool("locked", locked);
         cliente = GameObject.FindGameObjectsWithTag("NPC")[0];
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
+        score = GameObject.Find("score");
 
     }
 
@@ -160,9 +162,11 @@ public class porta : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            if (score != null && GerenciadorJogo != null) { 
+            score.GetComponent<readScore>().score = GerenciadorJogo.GetComponent<GerenciadorJogo>().countDiasTrabalhados;
             if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1")
             {
-           
+                
                 //Pula pra outra fase.
                 SceneManager.LoadScene("test2");
 
@@ -171,7 +175,8 @@ public class porta : MonoBehaviour
             else if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2")
             {
             //Pula pra outra fase.
-            SceneManager.LoadScene("test1");
+            SceneManager.LoadScene("test3");
+            }
             }
         }
     }
