@@ -125,7 +125,6 @@
     <Compile Include="Assets\scripts\movimentacaoObjeto.cs" />
     <Compile Include="Assets\scripts\pedacoSoftware.cs" />
     <Compile Include="Assets\scripts\placa.cs" />
-    <Compile Include="Assets\scripts\pocao.cs" />
     <Compile Include="Assets\scripts\porta.cs" />
     <Compile Include="Assets\scripts\removePontos.cs" />
     <Compile Include="Assets\scripts\showHideObject.cs" />

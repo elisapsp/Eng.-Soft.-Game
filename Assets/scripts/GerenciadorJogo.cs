@@ -61,11 +61,22 @@ public class GerenciadorJogo : MonoBehaviour {
 
 		posicaoSalva = posicaoInicialPlayer;
 
-		//O jogo começa na fase de remanejamento dos recursos.
-		GameOver = false;
-		GameWait = true; 
-		GameStart = false;
-		objetivoConcluido = false;
+        //O jogo começa na fase de remanejamento dos recursos.
+
+        if (nomeFase == "test3")
+        {
+            GameOver = false;
+            GameWait = false;
+            GameStart = true;
+        }
+        else
+        {
+            GameOver = false;
+            GameWait = true;
+            GameStart = false;
+
+        }
+        objetivoConcluido = false;
 		
 		recursos = GameObject.Find("GerenciarTime");
 		Timer = GameObject.Find("Canvas/Timer/Panel/Text");

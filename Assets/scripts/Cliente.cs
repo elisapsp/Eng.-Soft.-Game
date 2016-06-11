@@ -9,7 +9,7 @@ public class Cliente : MonoBehaviour {
 
 
     public GameObject ultimoPedacoSoftware;
-    bool CriouUltimoPedacoSoftware;
+    private bool CriouUltimoPedacoSoftware;
 
     public GameObject DialogBoxText;
     private GameObject tooltip;
@@ -17,6 +17,8 @@ public class Cliente : MonoBehaviour {
     private GameObject Timer;
     private Timer tempo;
     private softwareDesenvolvido softwarePlayer;
+
+    private bool GameEND;
 
     public string[] FalasCliente = new string[3];
 
@@ -39,7 +41,8 @@ public class Cliente : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        bool CriouUltimoPedacoSoftware = false;
+        GameEND = false;
+        CriouUltimoPedacoSoftware = false;
 
         //Limpa o array das falas.
         limpaArrayFalas();
@@ -55,10 +58,11 @@ public class Cliente : MonoBehaviour {
 
             indiceObjetivo = 0;
         }
-        else if(GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2")
+        else if(GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2" || GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test3")
         {
             indiceObjetivo = 3;
         }
+
         if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2")
         {
             tooltip = gameObject.transform.FindChild("tooltip").gameObject;
@@ -122,7 +126,7 @@ public class Cliente : MonoBehaviour {
             indiceObjetivo = 3;
         }
 
-        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1")
+        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1" || GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test3")
         {
 
             //pra cada tipo de software coletado.
@@ -271,7 +275,7 @@ public class Cliente : MonoBehaviour {
                 indiceObjetivo = 3;
             }
 
-            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1")
+            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1" || GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test3")
             {
 
                 //pra cada tipo de software coletado.
@@ -414,8 +418,6 @@ public class Cliente : MonoBehaviour {
                 }
                 else
                 {
-                   
-                   
                     FalasCliente[indexFala] = FalasCliente[indexFala] + "Parabéns, você se mostrou um profissional muito capacitado. Não irei interferir mais na sua demanda. Está aqui o seu pedaço de software.";
                 }
 
@@ -423,7 +425,8 @@ public class Cliente : MonoBehaviour {
                 
                 
             }
-            
+
+           
 
 
         }
@@ -471,7 +474,7 @@ public class Cliente : MonoBehaviour {
       
         if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == false)
         {
-            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1")
+            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1" || GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test3")
             {
                 for (int i = 0; i < 4; i++)
                 {
@@ -500,10 +503,29 @@ public class Cliente : MonoBehaviour {
     void Update () {
 
         criaUltimoPedacoSoftware();
-
+        goToGameEnd();
     }
 
+    private void goToGameEnd()
+    {
+        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test3")
+        {
+            GameObject[] PopUpMenus = GameObject.FindGameObjectsWithTag("PopUpMenu");
+            if (PopUpMenus.Length == 0 && GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido)
+            {
+               
+                    GameEND = true;
+               
+            }
 
+            if (GameEND)
+            {
+                SceneManager.LoadScene("test1");
+            }
+        }
+
+       
+    }
 
     void OnTriggerExit2D(Collider2D collision)
     {
