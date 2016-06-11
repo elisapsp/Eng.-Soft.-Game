@@ -38,7 +38,6 @@ public class Cliente : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        tooltip = gameObject.transform.FindChild("tooltip").gameObject;
 
         bool CriouUltimoPedacoSoftware = false;
 
@@ -46,6 +45,8 @@ public class Cliente : MonoBehaviour {
         limpaArrayFalas();
         
         GerenciadorJogo = GameObject.Find("GerenciadorJogo");
+
+
         Timer = GameObject.Find("Canvas/Timer/Panel/Text");
         descricaoObjetivo = MenuObjetivo.gameObject.transform.FindChild("Objetivo").gameObject;
 
@@ -57,6 +58,10 @@ public class Cliente : MonoBehaviour {
         else if(GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2")
         {
             indiceObjetivo = 3;
+        }
+        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2")
+        {
+            tooltip = gameObject.transform.FindChild("tooltip").gameObject;
         }
 
 
