@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\AtualizaAvisoMenuGerenciarTime.cs" />
+    <Compile Include="Assets\scripts\Boss.cs" />
     <Compile Include="Assets\scripts\BugCollision.cs" />
     <Compile Include="Assets\scripts\Cliente.cs" />
     <Compile Include="Assets\scripts\CommitInstance.cs" />
