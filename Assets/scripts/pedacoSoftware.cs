@@ -23,9 +23,9 @@ public class pedacoSoftware : MonoBehaviour {
        
         sprite = spritePedacoSoftware.GetComponent<SpriteRenderer>().sprite;
         
-	}
-	
-	void Update () {
+    }
+
+    void Update () {
         sprite = spritePedacoSoftware.GetComponent<SpriteRenderer>().sprite;
         //Seta a variavel do animator que mudará o numero desenhado no sprite.
         animator.SetInteger("Tipo", tipo);
@@ -79,6 +79,30 @@ public class pedacoSoftware : MonoBehaviour {
             }
         }
 	}
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        int checaEspacoDisponivel;
+
+        if (collision.tag == "Player")
+        {
+            if (this.gameObject.activeSelf)
+            {
+
+                //Se o pedacoSoftware for preto, significa que ele foi testado e não está funcionando.
+                if (this.gameObject.GetComponent<pedacoSoftware>().color != "black")
+                {
+
+                    checaEspacoDisponivel = inventory.AdicionaTipoDeSoftware(this);
+                    if (checaEspacoDisponivel == 0)
+                    {
+                        this.gameObject.SetActive(false);
+                    }
+
+                }
+            }
+        }
     }
 
 
