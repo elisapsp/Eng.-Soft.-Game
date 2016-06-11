@@ -133,7 +133,7 @@ public class porta : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             //Pula pra outra fase.
-            SceneManager.LoadScene("test0");
+            SceneManager.LoadScene("test2");
             
 
         }
