@@ -415,11 +415,7 @@ public class Cliente : MonoBehaviour {
                 else
                 {
                    
-                    if (CriouUltimoPedacoSoftware == false)
-                    { 
-                    ultimoPedacoSoftware.gameObject.SetActive(true);
-                        CriouUltimoPedacoSoftware = true;
-                    }
+                   
                     FalasCliente[indexFala] = FalasCliente[indexFala] + "Parabéns, você se mostrou um profissional muito capacitado. Não irei interferir mais na sua demanda. Está aqui o seu pedaço de software.";
                 }
 
@@ -431,6 +427,8 @@ public class Cliente : MonoBehaviour {
 
 
         }
+
+        
         /*
         Debug.Log("Fala do cliente: " + FalasCliente[0]);
         Debug.Log("Fala do cliente: " + FalasCliente[1]);
@@ -445,6 +443,17 @@ public class Cliente : MonoBehaviour {
         DialogBoxText.GetComponent<ImportText>().text = FalasCliente;
     }
 
+    private void criaUltimoPedacoSoftware()
+    {
+        if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2") { 
+            if (CriouUltimoPedacoSoftware == false && GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido)
+        {
+            ultimoPedacoSoftware.gameObject.SetActive(true);
+            CriouUltimoPedacoSoftware = true;
+        }
+        }
+    }
+
     public void descreveObjetivo()
     {
 
@@ -452,26 +461,31 @@ public class Cliente : MonoBehaviour {
         
         descricaoObjetivo.GetComponent<Text>().text = "";
 
+        
 
-            
             if (indiceObjetivo > 3)
             {
                 indiceObjetivo = 3;
             }
 
-
+      
         if (GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido == false)
         {
-            tooltip.GetComponent<SpriteRenderer>().enabled = true;
-            for (int i = 0; i < 4; i++)
+            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test1")
             {
-                descricaoObjetivo.GetComponent<Text>().text += "Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i] + "\n";
-                //Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
+                for (int i = 0; i < 4; i++)
+                {
+                    descricaoObjetivo.GetComponent<Text>().text += "Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i] + "\n";
+                    //Debug.Log("Cor do pedaço de software tipo " + (i + 1).ToString() + ": " + objetivo[indiceObjetivo][i]);
+                }
+                descricaoObjetivo.GetComponent<Text>().text += "Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes." + "\n";
+                //Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
+
             }
-            descricaoObjetivo.GetComponent<Text>().text += "Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes." + "\n";
-            //Debug.Log("Eliminar os " + GerenciadorJogo.GetComponent<GerenciadorJogo>().numBugsCriticos.ToString() + " bugs críticos restantes.");
-
-
+            else if(GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2")
+            {
+                descricaoObjetivo.GetComponent<Text>().text += "Responder todas as 5 perguntas do seu chefe sem errar.";
+            }
         }
         else
         {
@@ -484,8 +498,8 @@ public class Cliente : MonoBehaviour {
 
         // Update is called once per frame
     void Update () {
-      
-        
+
+        criaUltimoPedacoSoftware();
 
     }
 
