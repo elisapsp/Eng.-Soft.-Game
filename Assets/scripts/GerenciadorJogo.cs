@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GerenciadorJogo : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class GerenciadorJogo : MonoBehaviour {
       Se o jogo estiver acontecendo(em andamento), os 3 estados são falsos.
      */
 
+    public string nomeFase;
     public int pontoExtra;
     public bool GameOver; //Quando o jogo der gameOver.
     public bool GameWait; //Enquanto o jogador não clicar em voltar ao jogo, no menu de Gerenciamento de Time.
@@ -47,7 +49,10 @@ public class GerenciadorJogo : MonoBehaviour {
 			Debug.LogError("GerenciadorJogo deve ter uma unica instancia");
 		}
 		instance = this;
-	}
+
+        nomeFase = SceneManager.GetActiveScene().name;
+
+    }
 
     void Start()
     {
