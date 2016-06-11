@@ -14,10 +14,7 @@ public class readScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        Debug.Log(score);
-
-
+        
     }
    
 }

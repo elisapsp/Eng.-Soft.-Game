@@ -520,7 +520,7 @@ public class Cliente : MonoBehaviour {
 
             if (GameEND)
             {
-                SceneManager.LoadScene("test1");
+                SceneManager.LoadScene("endGame");
             }
         }
 

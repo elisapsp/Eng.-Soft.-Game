@@ -86,7 +86,9 @@ public class GerenciadorJogo : MonoBehaviour {
         score = GameObject.Find("score");
         if (nomeFase == "test2" || nomeFase == "test3")
         {
-            countDiasTrabalhados = score.GetComponent<readScore>().score; 
+            if (score != null) { 
+            countDiasTrabalhados = score.GetComponent<readScore>().score;
+            }
         }
 		
        
