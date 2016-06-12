@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -76,6 +70,7 @@
     <Compile Include="Assets\scripts\CommitInstance.cs" />
     <Compile Include="Assets\scripts\DaDano.cs" />
     <Compile Include="Assets\scripts\DragHandler.cs" />
+    <Compile Include="Assets\scripts\EntrarNaFase.cs" />
     <Compile Include="Assets\scripts\ExitGame.cs" />
     <Compile Include="Assets\scripts\GUITextureAboveObject.cs" />
     <Compile Include="Assets\scripts\GerenciadorJogo.cs" />
@@ -103,6 +98,7 @@
     <Compile Include="Assets\scripts\bolaFogo.cs" />
     <Compile Include="Assets\scripts\bolaFogo2.cs" />
     <Compile Include="Assets\scripts\camera.cs" />
+    <Compile Include="Assets\scripts\checkGameResult.cs" />
     <Compile Include="Assets\scripts\cogumelo.cs" />
     <Compile Include="Assets\scripts\controleVersao.cs" />
     <Compile Include="Assets\scripts\espinho.cs" />
@@ -116,8 +112,8 @@
     <Compile Include="Assets\scripts\movimentacaoObjeto.cs" />
     <Compile Include="Assets\scripts\pedacoSoftware.cs" />
     <Compile Include="Assets\scripts\placa.cs" />
-    <Compile Include="Assets\scripts\pocao.cs" />
     <Compile Include="Assets\scripts\porta.cs" />
+    <Compile Include="Assets\scripts\readScore.cs" />
     <Compile Include="Assets\scripts\removePontos.cs" />
     <Compile Include="Assets\scripts\showHideObject.cs" />
     <Compile Include="Assets\scripts\softwareDesenvolvido.cs" />
