@@ -3,7 +3,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class Cliente : MonoBehaviour {
@@ -412,7 +414,7 @@ public class Cliente : MonoBehaviour {
                     indexFala++;
                     FalasCliente[indexFala] += "Não serão perguntas fáceis, então caso queira estudar antes, temos todo o conteúdo para ser estudado ao redor desta fase.";
                     indexFala++;
-                    FalasCliente[indexFala] += "Quando quiser responder as perguntas, venha até mim e aperte enter para iniciar. Caso erre alguma pergunta, o número de dias trabalhados será aumentado em 1! Boa sorte!";
+                    FalasCliente[indexFala] += "Quando quiser responder as perguntas, venha até mim e aperte enter para iniciar. Para responder, aperte a letra 'J' se acha que a frase está correta, e aperte a letra 'K' caso ache que a frase está incorreta. Caso erre alguma pergunta, o número de dias trabalhados será aumentado em 1! Boa sorte!";
 
                     tooltip.GetComponent<SpriteRenderer>().enabled = true;
                     OnPressEnter();
@@ -503,6 +505,10 @@ public class Cliente : MonoBehaviour {
         // Update is called once per frame
     void Update () {
 
+        if (tooltip.GetComponent<SpriteRenderer>().enabled && Input.GetKeyDown(KeyCode.Return)) {
+            OnPressEnter();
+        }
+
         criaUltimoPedacoSoftware();
         goToGameEnd();
     }
@@ -541,15 +547,6 @@ public class Cliente : MonoBehaviour {
     }
 
 
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            if (GerenciadorJogo.GetComponent<GerenciadorJogo>().nomeFase == "test2") { 
-                OnPressEnter();
-            }
-        }
-    }
 
     //Função OnPressEnter chamará o jogo de perguntas e respostas. Caso o jogador conclua 
     //com sucesso, a variável GerenciadorJogo.GetComponent<GerenciadorJogo>().objetivoConcluido deve ser setada como true.
@@ -558,6 +555,119 @@ public class Cliente : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Return))
         {
 
+
+            string[] FalasClientePerguntas = new string[21];
+            bool[] FalasClienteRespostas = new bool[21];
+
+            int indexFala = 0;
+            FalasClientePerguntas[indexFala] = "O CMMI foi desenvolvido na universidade de Harvard.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "O diagrama de estrutura composta da UML mostra os conectores entre as partes.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Triângulo crítico da engenharia de software é composto pro Pessoas, Processos e Projetos.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "O modelo de capacitação contínuo do CMMI é mais rígido que o em estágios.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "O modelo do problema é o principal artefato de definição de requisitos do projeto.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Fechamento não é uma tarefa das oficinas de requisitos do JAD.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Casos de uso Representam uma fatia de funcionalidade.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "A análise tem como um dos objetivos verificar a qualidade dos requisitos obtidos.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "O Desenho não considera a reutilização de componentes.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Um script de teste é um conjunto detalhado de instruções para execuções de testes.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Big-bang é um tipo de integração.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Qualidade é o grau de conformidade com os requisitos não-funcionais.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "A garantia de qualidade não pode ser feita via testes de verificação.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Projetos são distintos das atividades permanentes da organização.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Portfólios são conjuntos de processos ou programas, agrupados afim de facilitar a gestão.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "O escopo de um produto é definido por seu desenho.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "As regras dos pontos de função são definidas pelo IEEE.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "No SCRUM não há gerentes de projetos.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "No XP, um teste é feito executando o programa até achar os erros.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "Há uma maneira padronizada nas organizações de se fazer testes em software.";
+            indexFala++;
+            FalasClientePerguntas[indexFala] = "O ideal é se realizar apenas testes de caixa branca no seu produto.";
+
+
+            indexFala = 0;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = true;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+            indexFala++;
+            FalasClienteRespostas[indexFala] = false;
+
+            tooltip.GetComponent<SpriteRenderer>().enabled = true;
+
+
+            //Randomiza
+            System.Random rnd = new System.Random();
+            int[] randomAux = new int[21];
+            string[] FalasClientePerguntasAux = new string[5];
+            bool[] FalasClienteRespostasAux = new bool[5];
+
+            for (int randomI = 0; randomI < 21; randomI++)
+            {
+                randomAux[randomI] = randomI;
+            }
+            randomAux = randomAux.OrderBy(x => rnd.Next()).ToArray();
+
+            for (int randomI = 0; randomI < 5; randomI ++) {
+                FalasClientePerguntasAux[randomI] = FalasClientePerguntas[randomAux[randomI]];
+                FalasClienteRespostasAux[randomI] = FalasClienteRespostas[randomAux[randomI]];
+            }
+
+            DialogBoxText.GetComponent<ImportText>().text = FalasClientePerguntasAux;
+            DialogBoxText.GetComponent<ImportText>().respostas = FalasClienteRespostasAux;
 
 
         }

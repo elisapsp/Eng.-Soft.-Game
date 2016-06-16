@@ -7,21 +7,30 @@ public class ImportText : MonoBehaviour {
 
     public int limiteCaracteresPorLinha = 70;
     public string[] text;
-    private int currentLine;
+    public bool[] respostas;
+    private int currentLine, currentQuestionLine;
+    private bool firstEnter = true;
   
 
     // Use this for initialization
     void Start () {
         currentLine = 0;
-        
+        currentQuestionLine = 0;
+    }
 
-}
-	
+    void OnEnable()
+    {
+        firstEnter = true;
+        currentLine = 0;
+        currentQuestionLine = 0;
+    }
+
+
 	// Update is called once per frame
 	void Update () {
 
         //Se tiver texto.
-        if (text.Length>0)
+        if (text!=null && text.Length>0)
         {
             
             List<string> list;
@@ -33,8 +42,10 @@ public class ImportText : MonoBehaviour {
                 currentLine++;
             }
 
-                if (Input.GetKeyDown(KeyCode.G))
-                {
+
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+
                 if (currentLine >= list.Count)
                 {
                     text = null;
@@ -43,11 +54,55 @@ public class ImportText : MonoBehaviour {
 
                 }
                 else
-                { 
-                gameObject.GetComponent<Text>().text = list[currentLine];
-                currentLine++;
+                {
+                    gameObject.GetComponent<Text>().text = list[currentLine];
+                    currentLine++;
                 }
             }
+            else if ((Input.GetKeyDown(KeyCode.Return))){
+                if (firstEnter)
+                {
+                    firstEnter = false;
+                    //GerenciadorJogo.instance.cliente.GetComponent<Cliente>().OnPressEnter();
+                    gameObject.GetComponent<Text>().text = list[currentQuestionLine];
+                    currentQuestionLine++;
+                    currentLine++;
+                }
+                else {
+                    text = null;
+                    currentLine = 0;
+                    gameObject.transform.parent.gameObject.SetActive(false);
+                }
+            }
+            //voce acretou
+            else if ((Input.GetKeyDown(KeyCode.J) && respostas[currentQuestionLine-1]) || (Input.GetKeyDown(KeyCode.K) && !respostas[currentQuestionLine-1]))
+            {
+
+                if (currentQuestionLine >= list.Count)
+                {
+                    text = null;
+                    currentQuestionLine = 0;
+                    currentLine = 0;
+                    gameObject.transform.parent.gameObject.SetActive(false);
+                    GerenciadorJogo.instance.objetivoConcluido = true;
+
+                }
+                else
+                {
+                    gameObject.GetComponent<Text>().text = list[currentQuestionLine];
+                    currentQuestionLine++;
+                }
+            }
+            //voce errou
+            else if ((Input.GetKeyDown(KeyCode.K) && respostas[currentQuestionLine-1]) || (Input.GetKeyDown(KeyCode.J) && !respostas[currentQuestionLine-1]))
+            {
+                gameObject.GetComponent<Text>().text = "Não foi dessa vez! Será que as placas podem ajudar? Leia um pouco sobre engenharia de software e tente novamente!";
+                GerenciadorJogo.instance.countDiasTrabalhados++;
+                text = null;
+                currentQuestionLine = 0;
+                currentLine = 0;
+            }
+            
 
 
 

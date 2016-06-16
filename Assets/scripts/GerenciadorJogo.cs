@@ -13,6 +13,7 @@ public class GerenciadorJogo : MonoBehaviour {
       Se o jogo estiver acontecendo(em andamento), os 3 estados são falsos.
      */
     public GameObject score;
+    public GameObject cliente;
     public string nomeFase;
     public int pontoExtra;
     public bool GameOver; //Quando o jogo der gameOver.
@@ -84,6 +85,7 @@ public class GerenciadorJogo : MonoBehaviour {
 		recursos = GameObject.Find("GerenciarTime");
 		Timer = GameObject.Find("Canvas/Timer/Panel/Text");
         score = GameObject.Find("score");
+        cliente = GameObject.Find("Cliente");
         if (nomeFase == "test2" || nomeFase == "test3")
         {
             if (score != null) { 
